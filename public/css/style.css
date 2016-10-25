@@ -1,0 +1,169 @@
+html, body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-family: "Varela Round", sans-serif
+    }
+
+a {
+    text-decoration: none;
+    cursor: pointer
+    }
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+header{
+    background:#BA1111;
+    width: 100%;
+    height: 50px;
+    
+}
+header #but_menu{
+    /*position: fixed;
+    left: -18px;*/
+    margin-left: -18px;
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+
+}
+header #but_menu i{
+    position: relative;
+    top: 13px;
+    left: 12px;
+    color: white;
+    font-size: 25px;
+}
+
+header h1{
+    position: relative;
+    top: -44px;;
+    left: 30px;
+    width: 200px;
+
+    margin: 0;
+    color:white;
+    font-family: 'Annie Use Your Telescope', cursive;
+}
+
+header nav{
+    position: absolute;
+    left:0;
+    top: 0;
+    background:#B6AEAE;
+    width:250px;
+    height:100vh;
+    border: solid 1px black;
+    z-index: 9999;
+    transition-duration: 1s;
+    -moz-box-shadow: 1px 2px 18px #000000;
+    -webkit-box-shadow: 1px 2px 18px #000000;
+    box-shadow: 1px 2px 18px #000000; 
+}
+
+header nav .closebut{
+
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    float: right;
+    position:relative;
+    cursor: pointer;
+    webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; 
+    
+}
+header nav .closebut i{
+    position:absolute;
+    left:15px;
+    color:white;
+    font-size: 25px;
+}
+
+header nav ul>li{
+   
+   padding:15px;
+}
+
+header nav ul>li:hover{
+
+    background: #A80C0C;
+}
+header nav ul>li:hover a{
+    text-decoration: none;
+    color:white;
+}
+header nav ul>li> a{
+    display: block;
+    color:black;
+    font-weight: bold;
+}
+
+header nav #user{
+
+background: #383333;
+padding: 30px 10px 30px;
+color:white;
+}
+
+header nav #user figure{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+}
+header nav #user a{
+    display: inline-block;
+    font-size: .8em;
+    color:white;
+    margin: 0 6px;
+}
+.avatar{
+    border-radius: 50%;
+    width: 100%;
+}
+.menu_open{
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+    
+}
+.menu_close{
+    -webkit-transform: translateX(-250px);
+    -moz-transform: translateX(-250px);
+    transform: translateX(-250px);
+}
+.container-fluid{
+    margin-top:40px; 
+}
+.modal-header-danger {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #d9534f;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+
+
+@media screen and (min-width: 480px){
+
+}
+@media screen and (min-width: 600px){
+    
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 950px){
+    
+}

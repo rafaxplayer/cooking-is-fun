@@ -1,0 +1,81 @@
+
+.container-fluid{
+    margin-top:30px;
+}
+.content_title{
+    text-align: center;
+    position:relative;
+    
+}
+.content_title h3{
+    display: inline-block;
+    padding: 20px;
+    letter-spacing: 2px;
+}
+.content_title:after{
+    content:"\f103";
+    font-family: 'FontAwesome';
+    font-size: 1.5em;
+    position: absolute;
+    top:70px;
+    left:49%;
+}
+/*forms*/
+.redtext{
+    color:red;
+}
+form{
+    overflow:hidden;
+    margin: 80px 0;
+    padding: 10px;
+    border: 1px solid #ADABAB;
+    border-radius: 10px;
+}
+form label{
+    font-weight: normal;
+}
+form figure{
+    width:300px;
+    height: 300px;
+    margin: 0 auto 20px;
+}
+form figure img{
+    width: 100%;
+
+}
+input[type="file"],input[type="time"],input[type="url"]{
+max-width: 300px;
+
+}
+/*end forms*/
+/*List recipes*/
+#search{
+    margin-top: 30px;
+    overflow: hidden;
+
+}
+#search>*{
+   max-width: 300px; 
+   margin:0  auto 10px auto;
+   
+}
+#search select{
+    
+    
+}
+#list_recipes
+@media screen and (min-width: 480px){
+
+}
+@media screen and (min-width: 600px){
+    #search>*{
+        float: right;
+        margin: 0 0 10px 10px;
+    }
+}
+@media screen and (min-width: 767px){
+    
+}
+@media screen and (min-width: 950px){
+    
+}
