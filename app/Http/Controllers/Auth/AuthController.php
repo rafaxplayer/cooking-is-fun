@@ -12,14 +12,13 @@ use Auth;
 //use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller {
 
-	protected $auth;
+	
 
     //use AuthenticatesAndRegistersUsers;
 	
-	public function __construct(Guard $auth, Registrar $registrar)
+	public function __construct()
 	{
-		$this->auth = $auth;
-		
+				
 		$this->middleware('guest',['except' => ['logout', 'getLogout']]);
 	}
 
@@ -71,6 +70,7 @@ class AuthController extends Controller {
             		$message->to($user->email, $user->name)->subject('Verify your email address');
         		});
 
+    			
         		return redirect('/home')->with('message','Ok register successful!! check your email for confirmation');
     		}else{
     			return redirect('/home')->with('message_warning','Error on registration');

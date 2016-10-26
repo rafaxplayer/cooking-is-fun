@@ -80,12 +80,13 @@ class RecipesController extends Controller {
 		}
     	else {
 			$recipe = new Recipe();
-			$recipe->img_url=url('/')."/public/img/recipe_placeholder.png";
+			$recipe->img_url = url('/')."/public/img/recipe_placeholder.png";
 			if(Input::hasFile('imageUpload')){
 				$name = str_random(10)."-".Input::file('imageUpload')->getClientOriginalName();
-				$newpath = str_replace("\\","/",public_path('uploads/avatar/'));
+				$newpath = str_replace("\\","/",public_path('/uploads/recipeimages/'));
 				Input::file('imageUpload')->move($newpath,$name);
-				$recipe->img_url = $newpath.$name;
+				$urlimage=url('public/uploads/recipeimages/'.$name);
+				$recipe->img_url = $urlimage;
 
 			}
 			
@@ -99,11 +100,19 @@ class RecipesController extends Controller {
 			$recipe->elaboration=Input::get('elaboration');
 			$recipe->elaboration_time = Input::get('elaboration_time');
 			$recipe->user_id = Auth::user()->id;
+			$categories_checked= Input::get('categories');
 			$result = $recipe->save();
-
+ 			
 			if($result){
 
+				if(is_array($categories_checked))
+ 				{
+    				$recipe->categories()->sync($categories_checked);
+ 				}
+ 				
 				return redirect("/recipes")->with('message','Ok receta guardada con exito');
+			}else{
+				return redirect("/recipes/create")->with('message_warning','Ocurrio un error al guardar la receta');
 			}
 		}
 

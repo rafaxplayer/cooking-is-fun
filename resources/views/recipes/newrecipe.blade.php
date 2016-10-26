@@ -6,6 +6,7 @@
 @section('javascript')
 <script type="text/javascript" src="{{asset('public/js/recipe.js')}}"></script>
 @stop
+
 @section('content')
 <div class="container-fluid">
 <div class="content_title">
@@ -46,12 +47,8 @@
 				@endif
 			</div>
 			<div class="form-group">
-				<label for="category">Selecciona categoria:</label>
-				<select name="category_id" class="form-control">
-					@foreach(App\Models\Category::all() as $cat)
-						<option value="{{$cat->id}}">{{$cat->name}}</option>
-					@endforeach
-		  		</select>
+				<a class="btn btn-primary" data-toggle="modal" data-target="#modalcategories"><i class="fa fa-tag"></i> Selecciona categorias</a>
+				@include('partials.modal_categories')
 	  		</div>
 	  		<div class="form-group">
 				<label for="time">Tiempo de preparación (Horas:Minutos):</label>

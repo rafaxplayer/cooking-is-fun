@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->string('name');
 			$table->string('email')->unique();
 			$table->string('password', 60);
-			$table->string('avatar')->default(url('/').'/micocina/public/img/user.png');
+			$table->string('avatar')->default(url('/').'/cooking is fun/public/img/user.png');
 			$table->enum('range',['member','admin'])->default('member');
 			$table->string('confirm_token',100);
 			$table->boolean('active')->default(false);

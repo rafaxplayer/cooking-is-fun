@@ -18,7 +18,23 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	
 	protected $hidden = ['password', 'remember_token'];
+	
+	public static function boot()
+    {
+        static::creating(function ($model) {
+            // blah blah
+        });
 
+        static::updating(function ($model) {
+            // bleh bleh
+        });
+
+        static::deleting(function ($model) {
+            // bluh bluh
+        });
+        
+        parent::boot();
+    }
 
 	public function isAdmin(){
 		
@@ -29,5 +45,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 		return $this->hasMany('App\Models\Recipe');
 	}
+	
 
 }

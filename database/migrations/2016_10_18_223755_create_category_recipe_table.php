@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecipesCategories extends Migration {
+class CreateCategoryRecipe extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateRecipesCategories extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('recipes_categories', function(Blueprint $table)
+		Schema::create('category_recipe', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('recipe_id');
-			$table->integer('cateory_id');
+			$table->integer('category_id');
 			$table->timestamps();
 		});
 	}

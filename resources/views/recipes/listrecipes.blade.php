@@ -23,20 +23,23 @@
     </div>
 
 </div>
-	<ul id="list_recipes">
+	<div id="list_recipes" class="row">
 		@foreach(App\Models\Recipe::all() as $recipe)
-			<li class="item_recipe">
+			<div class="item_recipe col-sm-3 col-xs-12">
 				<figure>
 					<img src="{{$recipe->img_url}}" alt="imagen de la receta">
 				</figure>
 				<div class="info">
 					<h3>{{$recipe->name}}</h3>
 					
-					<p class="time">{{$recipe->elaboration_time}}</p>
-					<p class="user">{{App\Models\User::find($recipe->user_id)->name}}</p>
+					<p><i class="fa fa-clock-o" aria-hidden="true"></i> {{$recipe->elaboration_time}}</p>
+					<p><i class="fa fa-user-circle" aria-hidden="true"></i> {{$recipe->user->name}}</p>
+					@if(count($recipe->categories)>0)
+					<p><i class="fa fa-tag" aria-hidden="true"></i> {{$recipe->categoriesToString()}}</p>
+					@endif
 				</div>
-			</li>
+			</div>
 		@endforeach
-	</ul>
+	</div>
 </div>
 @stop

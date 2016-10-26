@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration {
 
-	
 
 	public function up()
 	{
@@ -16,7 +15,7 @@ class CreateCategoriesTable extends Migration {
 			$table->timestamps();
 		});
 
-		$categories = array('Entrantes','Ensaladas','Aperitivos','Arroces','Primeros','Huevos','Carnes','Pescados','Vegetales','Postres');
+		$categories = array('Entrantes','Ensaladas','Aperitivos','Arroces','Primeros','Huevos','Carnes','Pescados','Segundos','Vegetales','Postres','Salsas');
 
 		foreach ($categories as $cat){
 
