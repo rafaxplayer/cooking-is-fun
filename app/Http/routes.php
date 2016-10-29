@@ -32,7 +32,15 @@ Route::group(['prefix' => 'auth'], function(){
 });
 
 
-Route::resource('recipes','Recipes\RecipesController');
+
+Route::group(['prefix' => 'recipes'], function(){
+
+	Route::post('/category','Recipes\RecipesController@searchWithCat');
+	Route::post('/search','Recipes\RecipesController@search');
+	
+
+});
+Route::resource('/recipes','Recipes\RecipesController');
 
 Route::group(['prefix' => 'admin'], function(){
 

@@ -37,12 +37,14 @@ class recipe extends Model {
 	}
 
     public function categoriesToString(){
-        $str="";
+
+        $str = "";
 
         if(count($this->categories) > 0){
             $catnames=[];
-            
+
             foreach($this->categories as $cat){
+
                 $catnames[]=$cat->name;
             }
             return implode(",",$catnames);

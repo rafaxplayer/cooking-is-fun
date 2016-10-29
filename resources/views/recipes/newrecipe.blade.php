@@ -4,15 +4,15 @@
 <link rel="stylesheet" href="{{asset('public/css/recipes/recipes.css')}}"/>
 @stop
 @section('javascript')
-<script type="text/javascript" src="{{asset('public/js/recipe.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/js/recipes/recipe.js')}}"></script>
 @stop
 
 @section('content')
 <div class="container-fluid">
 <div class="content_title">
-	<h3>Ingresa los datos de tu receta</h3>
+	<h2>Ingresa los datos de tu receta</h2>
 </div>
-	{!!Form::open(['route'=>'recipes.store','method'=>'post','class'=>'form-horizontal','files'=>true])!!}
+	{!!Form::open(['route'=>'recipes.store','method'=>'post','class'=>'form-horizontal form_custom','files'=>true])!!}
 		<div class="col-md-4">
 			<figure >
 				<img id="imagerecipe" src="{{asset('public/img/recipe_placeholder.png')}}" name="img" />

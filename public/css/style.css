@@ -153,10 +153,17 @@ header nav #user a{
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
 }
+.pagination{
+    margin-left: 10px;
+}
 
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #BA1111;
+    border-color: #BA1111;
+}
 
 @media screen and (min-width: 480px){
-
+    
 }
 @media screen and (min-width: 600px){
     

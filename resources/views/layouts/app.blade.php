@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="description" content="Recetas en linea en español">
     <meta name="keywords" content="Recetas en linea ,Recetas en español">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title','Mi Cocina')</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     

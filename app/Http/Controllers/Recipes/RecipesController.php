@@ -7,7 +7,7 @@ use Auth;
 use Validator;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
-
+use Log;
 class RecipesController extends Controller {
 
 
@@ -22,8 +22,9 @@ class RecipesController extends Controller {
 	 */
 	public function index()
 	{
-		
-		return view('recipes.listrecipes');
+		$recipes = Recipe::paginate(9);
+		$recipes->setPath('recipes');
+		return view('recipes.listrecipes',compact('recipes'));
 		
 	}
 
@@ -108,10 +109,14 @@ class RecipesController extends Controller {
 				if(is_array($categories_checked))
  				{
     				$recipe->categories()->sync($categories_checked);
+ 				}else{
+ 					$recipe->categories()->attach(14);
  				}
  				
 				return redirect("/recipes")->with('message','Ok receta guardada con exito');
+
 			}else{
+
 				return redirect("/recipes/create")->with('message_warning','Ocurrio un error al guardar la receta');
 			}
 		}
@@ -126,8 +131,9 @@ class RecipesController extends Controller {
 	 */
 	public function show($id)
 	{
-		// $recipe=App\Models\Recipe::find($id);
-		// return view('recipes.detailrecipe',['recipe'=>$recipe]);
+		
+		$recipe=Recipe::find($id);
+		return view('recipes.detailrecipe',compact('recipe'));
 	}
 
 	/**
@@ -138,8 +144,8 @@ class RecipesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		// $recipe=App\Models\Recipe::find($id);
-		// return view('recipes.editrecipe',['recipe'=>$recipe]);
+		$recipe=App\Models\Recipe::find($id);
+		return view('recipes.editrecipe',['recipe'=>$recipe]);
 	}
 
 	/**
@@ -161,7 +167,48 @@ class RecipesController extends Controller {
 	 */
 	public function destroy($id)
 	{
+		$recipe=Recipe::find($id);
+		$recipe->delete();
+
+		return redirect("/recipes")->with('message','Ok receta eliminada con exito');
 		
 	}
 
+	public function search(){
+
+		$recipes = Recipe::paginate(9);
+		$recipes->setPath('recipes');
+		
+		if(Input::has('pattern')){
+			
+			if(strlen(Input::get('pattern')) > 0){
+
+				$recipes = Recipe::where('name','like', '%' . Input::get('pattern') . '%')->paginate(9);
+				$recipes->setPath('recipes');
+				if(count($recipes) > 0){
+
+					return view('recipes.listrecipes_min',compact('recipes'));
+
+				}
+			}
+			
+		}
+		return view('recipes.listrecipes_min',compact('recipes'));
+			
+	}
+
+	public function searchWithCat(){
+
+		$id = Input::get('id');
+
+		$recipes = Recipe::whereHas('categories',function($q) use ($id){
+
+		  	$q->where('category_id','=',$id);
+
+		  })->paginate(9);
+
+		$recipes->setPath('recipes');
+		
+		return view('recipes.listrecipes_min',compact('recipes'));
+	}
 }
