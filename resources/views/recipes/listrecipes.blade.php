@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title','Recetas mas recientes')
 @section('css')
 <link rel="stylesheet" href="{{asset('public/css/recipes/recipes.css')}}"/>
 @stop
@@ -24,10 +23,14 @@
 				<div class="col-sm-4 col-xs-12">
 				<a href="{{url('/recipes/'.$recipe->id)}}">
 					<div class="item_recipe">
+						@if(Auth::check() && Auth::user()->favorites->contains($recipe))
+							<div class="star-favorite"><i class="fa fa-star"></i></div>
+						@endif
 						<figure>
 							<img src="{{$recipe->img_url}}"  alt="imagen de la receta">
 						</figure>
 						<div class="info">
+							
 							<h3>{{$recipe->name}}</h3>
 							<p><i class="fa fa-clock-o" aria-hidden="true"></i> {{$recipe->elaboration_time}}</p>
 							<p><i class="fa fa-user-circle" aria-hidden="true"></i> {{$recipe->user->name}}</p>

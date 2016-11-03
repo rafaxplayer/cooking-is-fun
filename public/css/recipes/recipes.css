@@ -11,7 +11,7 @@
     display: inline-block;
     padding: 20px;
     font-size: 1.5em;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-transform: capitalize;
 }
 .content_title h2:after{
@@ -27,12 +27,13 @@
 .redtext{
     color:red;
 }
+
 .form_custom{
-    overflow:hidden;
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ADABAB;
-    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0 40px;
+    padding: 30px;
+    background: white;
+    box-shadow: 2px 4px 6px #9e9d9e;
 }
 .form_custom label{
     font-weight: normal;
@@ -61,20 +62,25 @@ max-width: 300px;
     overflow: hidden;
 
 }
+
 #search>*{
    max-width: 300px; 
    margin:0 auto 10px auto;
    
 }
+
 #list_recipes{
-    margin: 10px auto;
+    margin: 10px auto 20px;
 }
+
 .item_recipe{
     margin-bottom:10px;
-    background: #E2E2E2;
-    border-radius: 20px;
+    background: white;
     cursor: pointer;
-    padding: 4px;
+    padding: 10px;
+    -moz-box-shadow: 2px 4px 6px #9e9d9e;
+    -webkit-box-shadow: 2px 4px 6px #9e9d9e;
+    box-shadow: 2px 4px 6px #9e9d9e; 
     transition:all .4s;
 }
 .item_recipe:hover{
@@ -86,29 +92,38 @@ max-width: 300px;
 .item_recipe > *{
     display: inline-block;
 
+
 }
 .item_recipe figure{
     width: 80px;
     height: 80px;
     margin: 6px 0 6px 6px;
     padding: 5px;
-    border-radius: 5px;
     vertical-align: top;
-
 }
 
 .item_recipe figure img{
     width: 100%;
-
-    border-radius: 50%;
 }
 .item_recipe .info{
     margin: 5px 5px 5px 6px;
+    position: relative;
+    color: #6f6868;
     
+}
+.item_recipe .star-favorite{
+    position:absolute;
+    right: 20px;
+    top:10px; 
+}
+.item_recipe .star-favorite i{
+    font-size: 1.2em;
+    color:#f3d406;
 }
 .item_recipe .info h3{
     font-size: 1.1em;
     margin:10px 0 5px 0;
+
     text-transform: capitalize;
     word-wrap:break-word;
 }
@@ -118,9 +133,42 @@ max-width: 300px;
 }
 /*end listrecipes*/
 /*details recipe*/
-.details{
-    margin:20px auto;
+.details .favorites{
+    text-align: center;
+    margin-bottom: 25px;
 }
+.details .favorites a{
+    border-radius: 10px;
+    background: #D0CACA;
+    color:#383333;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+.details .favorites:hover a{
+    background: #EB4848;
+    color:white;
+}
+.details .favorites:hover i{
+   color:#f3d406;
+
+}
+.details label{
+    position:relative;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.details label:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #f1c0c0;
+    top: 30px;
+    left: 0;
+}
+
 .details .categories{
     margin: 10px 0;
 }
@@ -155,7 +203,8 @@ max-width: 300px;
     cursor:pointer;
 }
 .details .socialshare{
-    margin: 20px 0;
+    text-align: center;
+    margin: 30px auto;
     
 }
 .details .socialshare a{

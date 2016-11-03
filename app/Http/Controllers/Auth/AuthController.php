@@ -28,7 +28,7 @@ class AuthController extends Controller {
 		$postData = Input::all();
 
 	    $rules = [
-	      'name' => 'required|max:30|min:6',
+	      'name' => 'required|max:22|min:6',
 	      'email' => 'required|email|unique:users',
 	      'password' => 'required',
 	      'password_confirmation' => 'required|same:password'

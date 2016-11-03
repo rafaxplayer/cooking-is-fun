@@ -7,7 +7,7 @@
     <meta name="description" content="Recetas en linea en español">
     <meta name="keywords" content="Recetas en linea ,Recetas en español">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <title>@yield('title','Mi Cocina')</title>
+    <title>@yield('title','Cooking Is Fun')</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     
     
@@ -23,7 +23,9 @@
 <body>
 <header>
 	<div id="but_menu"><i class="fa fa-bars"></i></div>
-	<h1>Cooking is Fun</h1>
+	<a id="title" href="{{url('home')}}"><h1>Cooking is Fun!</h1></a>
+    
+    
     <nav id="ioMenu" class="menu_close">
     <div class="closebut"><i class="fa fa-close"></i></div>
         <ul>
@@ -44,20 +46,28 @@
                     <i class='fa fa-cutlery'></i>&nbsp;Recetas
                 </a>
             </li>
+            @if(Auth::check())
             <li>
                 <a href="{{url('recipes/create')}}" >
-                    <i class='fa fa-pencil'></i>&nbsp;Editar Nueva Receta
+                    <i class='fa fa-pencil'></i>&nbsp;Editar Receta
                 </a>
             </li>
             <li>
-                <a href='https://play.google.com/store/apps/details?id=rafaxplayer.micocina' target='_blanck'>
-                    <i class='fa fa-android'></i>&nbsp;Aplicación Android
+                <!-- <span class="badge">{{Auth::user()->favorites->count()}}</span> -->
+                <a href="{{url('recipes/favorites')}}">
+                    <i class='fa fa-star'></i>&nbsp;Favoritos
                 </a>
             </li>
+            @endif
+            
         </ul>
     </nav>
 <div class="header_back" >
-    
+    <figure><img src="{{asset('public/img/header.jpg')}}" alt=""></figure>
+    <div class="header-info">  
+    <p>Comparte tus creaciones culinarias o accede a las de otros muchos usuarios...</p>
+
+    </div>
 </div>
 </header>
 @include('partials/modal_user')

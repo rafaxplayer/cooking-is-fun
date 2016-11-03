@@ -44,8 +44,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function recipes(){
 
-		return $this->hasMany('App\Models\Recipe');
+		return $this->hasMany('App\Models\Recipe')->withTimestamps();
 	}
+
+	public function favorites(){
+        
+        return $this->belongsToMany('App\Models\Recipe','favorites','user_id','recipe_id')->withTimestamps();
+    }
 	
 
 }

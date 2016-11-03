@@ -1,3 +1,14 @@
+$(window).scroll(function() {
+
+    if ($(this).scrollTop()>0)
+     {
+        $('.fab').fadeIn();
+     }
+    else
+     {
+      $('.fab').fadeOut();
+     }
+ });
 $(document).on('ready',function(){
 
 	$('.closebut,#but_menu,#ioMenu a').click(function(){
@@ -10,4 +21,5 @@ $(document).on('ready',function(){
 	        $(this).remove(); 
 	    });
 	}, 6000);
+
 });

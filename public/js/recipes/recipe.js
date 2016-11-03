@@ -15,12 +15,12 @@ function readURL(input,inputurl,imgid) {
 
 function restoreImage(imgid) {
 
-    $(imgid).attr("src", "../public/img/recipe_placeholder.png");
+    $(imgid).attr("src", "http://localhost/cooking-is-fun/public/img/recipe_placeholder.png");
 }
 
 function errorImage(img) {
     img.onerror = '';
-    img.src = "../public/recipe_placeholder.png";
+    img.src = "http://localhost/cooking-is-fun/public/recipe_placeholder.png";
 
 }
 

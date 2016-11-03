@@ -20,7 +20,16 @@ class recipe extends Model {
         });
 
         static::deleting(function ($model) {
-            // bluh bluh
+
+            $basepath = str_replace("\\","/",public_path('uploads/recipeimages'));
+            $baseurl = url('/public/uploads/recipeimages/');
+            $path = str_replace($baseurl,$basepath,$model->img_url);
+
+            if(File::exists($path)){
+
+                File::delete($path);
+            }
+            
         });
         
         parent::boot();
@@ -33,8 +42,13 @@ class recipe extends Model {
 
 	public function categories(){
 
-		return $this->belongsToMany('App\Models\Category');
+		return $this->belongsToMany('App\Models\Category','category_recipe','recipe_id','category_id')->withTimestamps();
 	}
+
+    public function usersfavorite(){
+
+        return $this->belongsToMany('App\Models\User','favorites','recipe_id','user_id')->withTimestamps();
+    }
 
     public function categoriesToString(){
 

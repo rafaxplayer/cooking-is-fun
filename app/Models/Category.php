@@ -27,6 +27,6 @@ class category extends Model {
 
 	public function recipes(){
 		
-		return $this->belongsToMany('App\Models\Recipes');
+		return $this->belongsToMany('App\Models\Recipes','category_recipe','category_id','recipe_id')->withTimestamps();
 	}
 }

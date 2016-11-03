@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration {
 			$table->timestamps();
 		});
 
-		$categories = array('Entrantes','Ensaladas','Aperitivos','Arroces','Legumbres','Primeros','Huevos','Carnes','Pescados','Segundos','Vegetales','Postres','Salsas','Varios');
+		$categories = array('Entrantes','Ensaladas','Aperitivos','Arroces','Legumbres','Pasta','Primeros','Huevos','Carnes','Pescados','Segundos','Vegetales','Postres','Salsas','Varios');
 
 		foreach ($categories as $cat){
 

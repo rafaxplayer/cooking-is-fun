@@ -34,7 +34,9 @@ Route::group(['prefix' => 'auth'], function(){
 
 
 Route::group(['prefix' => 'recipes'], function(){
-
+	Route::get('/favorites','Recipes\RecipesController@searchFavorites');
+	Route::get('/favorite/{id}','Recipes\RecipesController@addFavorites');
+	Route::get('/favorite/remove/{id}','Recipes\RecipesController@removeFavorites');
 	Route::post('/category','Recipes\RecipesController@searchWithCat');
 	Route::post('/search','Recipes\RecipesController@search');
 	
