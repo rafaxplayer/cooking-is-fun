@@ -142,7 +142,7 @@ max-width: 300px;
     background: #D0CACA;
     color:#383333;
     padding: 8px 10px;
-    text-decoration: none;
+    
 }
 .details .favorites:hover a{
     background: #EB4848;
@@ -185,6 +185,7 @@ max-width: 300px;
    
     margin-left:3px; 
 }
+
 .details .tools{
     text-align: center;
     margin: 20px 0 30px;
@@ -209,6 +210,10 @@ max-width: 300px;
 }
 .details .socialshare a{
     margin-bottom:5px; 
+}
+
+@media print {
+   header,footer,.tools,.socialshare{display:none;}
 }
 @media screen and (min-width: 480px){
     .content_title:after{

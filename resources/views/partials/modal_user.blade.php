@@ -4,17 +4,17 @@
     <div class="modal-content">
       <div class="modal-header modal-header-danger">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Opciones de usuario</h4>
+        <h4 class="modal-title" id="myModalLabel">{{trans('textsapp.modal.options')}}</h4>
       </div>
       <div class="modal-body">
         <div class="list-group">
-          <a href="{{url('auth/logout')}}" class="list-group-item">Salir</a>
-          <a href="{{url('user/panel')}}" class="list-group-item">Panel de control</a>
+          <a href="{{url('auth/logout')}}" class="list-group-item">{{trans('textsapp.modal.options.exit')}}</a>
+          <a href="{{url('user/panel/perfil')}}" class="list-group-item">{{trans('textsapp.modal.options.panel')}}</a>
           
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{trans('textsapp.modal.options.button')}}</button>
         
       </div>
     </div>

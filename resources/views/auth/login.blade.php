@@ -11,7 +11,6 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">
-								<!-- <input type="email" class="form-control" name="email" value="{{ old('email') }}"> -->
 								{!! Form::email('email', '', ['class'=> 'form-control']) !!}
 								@if($errors->has('email'))
 								<div>
@@ -24,7 +23,6 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-6">
-								<!-- <input type="password" class="form-control" name="password"> -->
 								{!! Form::password('password', ['class'=> 'form-control']) !!}
 								@if($errors->has('password'))
 								<div>
@@ -38,7 +36,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="remember"> Remember Me
+										<input type="checkbox" name="remember"> {{trans('textsapp.remember')}}
 									</label>
 								</div>
 							</div>
@@ -46,9 +44,8 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<!-- <button type="submit" class="btn btn-primary">Login</button> -->
-								{!! Form::submit('Login',['class' => 'btn btn-primary']) !!}
-								<a href="{{url('auth/register')}}" class="btn btn-default">Register</a>
+								{!! Form::submit('Logearse',['class' => 'btn btn-primary']) !!}
+								<a href="{{url('auth/register')}}" class="btn btn-default">{{trans('textsapp.register')}}</a>
 							</div>
 						</div>
 					{!! Form::close() !!}

@@ -2,6 +2,7 @@
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use File;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
@@ -26,15 +27,31 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         });
 
         static::updating(function ($model) {
-            // bleh bleh
+            
         });
 
         static::deleting(function ($model) {
         	//delete recipes for user
             Recipe::where('user_id', '=',$model->id)->delete();
+            //delete avatar
+            $this->deleteAvatar();
+
         });
         
         parent::boot();
+    }
+
+    public function deleteAvatar(){
+
+    	$basepath = str_replace("\\","/",public_path('uploads/avatar'));
+        $baseurl = url('/public/uploads/avatar/');
+        $path = str_replace($baseurl,$basepath,$this->avatar);
+		
+        if(File::exists($path)){
+        	Log::info('deleting');
+            File::delete($path);
+        }
+
     }
 
 	public function isAdmin(){
@@ -44,7 +61,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function recipes(){
 
-		return $this->hasMany('App\Models\Recipe')->withTimestamps();
+		return $this->hasMany('App\Models\Recipe');
 	}
 
 	public function favorites(){

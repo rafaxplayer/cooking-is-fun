@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
 use Auth;
+use Log;
 use Validator;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
@@ -46,13 +47,16 @@ class RecipesController extends Controller {
 
 		$recipe = new Recipe();
 		$result= $this->editOrCreateRecipe($recipe);
-		if($result){
+		
+		if($result === true){
 				
 			return redirect("/recipes")->with('message','Ok receta guardada con exito');
 
-		}else{
+		}else if($result === false){
 
 			return redirect("/recipes/create")->with('message_warning','Ocurrio un error al guardar la receta');
+		}else{
+			return $result;
 		}
 
 	}
@@ -65,10 +69,11 @@ class RecipesController extends Controller {
 	 */
 	public function show($id){
 		
-		$recipe=Recipe::find($id);
+		$recipe = Recipe::find($id);
+			
 		$favorite = $recipe->usersfavorite->contains(Auth::user());
-
-		return view('recipes.detailrecipe',['recipe'=>$recipe,'favorite'=>$favorite ]);
+		
+		return view('recipes.detailrecipe',['recipe'=>$recipe,'favorite'=>$favorite]);
 	}
 
 	/**
@@ -79,7 +84,7 @@ class RecipesController extends Controller {
 	 */
 	public function edit($id){
 
-		$recipe=Recipe::find($id);
+		$recipe = Recipe::find($id);
 		return view('recipes.editrecipe',['recipe'=>$recipe]);
 	}
 
@@ -92,14 +97,17 @@ class RecipesController extends Controller {
 	public function update($id){
 
 		$recipe = Recipe::find($id);
-		$result= $this->editOrCreateRecipe($recipe);
-		if($result){
-				
-			return redirect("/recipes")->with('message','Ok receta actualizada con exito');
+		$result = $this->editOrCreateRecipe($recipe);
 
-		}else{
+		if($result===true){
+				
+			return redirect("/recipes/".$id)->with('message','Ok receta actualizada con exito');
+
+		}else if($result===false){
 
 			return redirect("/recipes/".$id."/edit")->with('message_warning','Ocurrio un error al guardar la receta');
+		}else{
+			return $result;
 		}
 	}
 
@@ -111,7 +119,7 @@ class RecipesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$recipe=Recipe::find($id);
+		$recipe = Recipe::find($id);
 		$recipe->delete();
 		return redirect("/recipes")->with('message','Ok receta eliminada con exito');
 	}
@@ -190,14 +198,13 @@ class RecipesController extends Controller {
 
 		$postData = Input::all();
 		
-
 	    $rules = [
 
 	     'name' => 'required|max:50|min:6',
 	     'imageUpload' =>'image|max:15500',
 	     'ingredients' =>'required|min:10',
 	     'elaboration' =>'required|min:10',
-	     
+	     'img_url' =>'url|max:255',
 	     
 	    ];
 
@@ -212,22 +219,31 @@ class RecipesController extends Controller {
          'ingredients.min' => 'Min size 10 chars',
          'elaboration.required' => 'Require ingredients for recipe',
          'elaboration.min' => 'Min size 10 chars',
+         'img_url.url' => 'Invalid format url',
+         'img_url.max' => 'Max size for url 255 chars'
          
      	];
 
-     	$validator = Validator::make($postData, $rules,$messages);
+     	$validator = Validator::make($postData,$rules,$messages);
 
-		if ($validator->fails()) {
-		      
+		if($validator->fails()) {
+
+		      Log::info('Validator fails');
 		    return redirect('/recipes/create')->withInput()->withErrors($validator);
+		    exit();
 		}
     	else {
-			
-			$recipe->img_url = url('/')."/public/img/recipe_placeholder.png";
+			Log::info('Validator ok');			
 			if(Input::hasFile('imageUpload')){
+
 				$name = str_random(10)."-".Input::file('imageUpload')->getClientOriginalName();
-				$newpath = str_replace("\\","/",public_path('/uploads/recipeimages/'));
+				$newpath = str_replace("\\","/",public_path('uploads/recipeimages/'));
+				
 				Input::file('imageUpload')->move($newpath,$name);
+
+				//delete old image if exists
+				$recipe->deleteImage();
+
 				$urlimage = url('public/uploads/recipeimages/'.$name);
 				$recipe->img_url = $urlimage;
 

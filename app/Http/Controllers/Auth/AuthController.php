@@ -36,7 +36,7 @@ class AuthController extends Controller {
 
 	    $messages = [
 	     'name.required'=>'Enter required name',
-	     'name.max'=>'Max name 30',
+	     'name.max'=>'Max name 22',
 	     'name.min'=>'Min name 6',
          'email.required' => 'Enter email address',
          'email.email' => 'Invalid email format',
@@ -57,7 +57,7 @@ class AuthController extends Controller {
     		$confirmation_code = str_random(30);
     		$user= new User();
     		$user->name = Input::get('name');
-    		$user->email = Input::get('email');
+    		$user->email = strtolower(Input::get('email'));
     		$user->password = bcrypt(Input::get('password'));
     		$user->confirm_token = $confirmation_code;
     		$result = $user->save();
@@ -71,9 +71,9 @@ class AuthController extends Controller {
         		});
 
     			
-        		return redirect('/home')->with('message','Ok register successful!! check your email for confirmation');
+        		return redirect('/home')->with('message',trans('messages.register.ok'));
     		}else{
-    			return redirect('/home')->with('message_warning','Error on registration');
+    			return redirect('/home')->with('message_warning',trans('messages.register.fail'));
     		}
      			
     	}
@@ -93,9 +93,9 @@ class AuthController extends Controller {
 			$user->active=1;
 			$user->save();
 
-			return redirect('/home')->with('message','Ok '.$user->name.' su cuenta ya esta activada, inicie session para empezar.');
+			return redirect('/home')->with('message',trans('message.register.confirm.ok'));
 		}
-		return redirect('/home')->with('message_warning','Error la confirmacion es fallida');
+		return redirect('/home')->with('message_warning',trans('message.register.confirm.fail'));
 		
 	}
 
@@ -137,11 +137,11 @@ class AuthController extends Controller {
 
 			if(Auth::attempt($credentials, Input::has('remember'))) {
             
-            	return redirect('/home')->with('message','Ok se ha autentificado correctamente');
+            	return redirect('/home')->with('message',trans('messages.login.ok'));
             	
 
         	}else{
-        		return redirect('/home')->with('message_warning','Error al autentificarse, datos incorrectos o su cuenta no esta activa');
+        		return redirect('/home')->with('message_warning',trans('messages.login.fail'));
         	}
 		}
 

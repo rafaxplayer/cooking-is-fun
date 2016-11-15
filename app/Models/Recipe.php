@@ -21,14 +21,7 @@ class recipe extends Model {
 
         static::deleting(function ($model) {
 
-            $basepath = str_replace("\\","/",public_path('uploads/recipeimages'));
-            $baseurl = url('/public/uploads/recipeimages/');
-            $path = str_replace($baseurl,$basepath,$model->img_url);
-
-            if(File::exists($path)){
-
-                File::delete($path);
-            }
+            $model->deleteImage();
             
         });
         
@@ -65,6 +58,19 @@ class recipe extends Model {
 
         }
         return $str;
+
+    }
+
+    public function deleteImage(){
+
+        $basepath = str_replace("\\","/",public_path('uploads/recipeimages'));
+        $baseurl = url('/public/uploads/recipeimages/');
+        $path = str_replace($baseurl,$basepath,$this->img_url);
+        
+        if(File::exists($path)){
+            
+            File::delete($path);
+        }
 
     }
 }

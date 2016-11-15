@@ -15,7 +15,7 @@
 	
 	position: relative;
 	display: inline-block;
-	z-index: 9999;
+	z-index: 1000;
 	margin-bottom: 40px;
 }
 
@@ -60,32 +60,13 @@
 }
 .content_section .info{
 	margin: 0 auto;
-		width: 90%;
+	width: 90%;
 }
 
 #web{
 	display:none;
 }
-.fab{
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background: #BA1111;
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	cursor: pointer;
-	-moz-box-shadow: 2px 4px 6px #9e9d9e;
-    -webkit-box-shadow: 2px 4px 6px #9e9d9e;
-    box-shadow: 2px 4px 6px #9e9d9e;
-}
-.fab i{
-	color:#e89292;
-	position:absolute;
-	font-size: 1.4em;
-	top:12px;
-	left: 15px;
-}
+
 .intro_web{
 	text-align:center;
 	margin:60px 0;
@@ -124,6 +105,11 @@
 	top:100%;
 	left:50%;
 }
+#web .content_section figure:before,
+#web .content_section figure:after{
+filter: opacity(0);
+
+}
 	
 #web .content_section:nth-child(odd) figure:before{
 	top:22%;
@@ -156,7 +142,7 @@
 }
 #web .content_section:nth-child(even) figure:after{
 	top:22%;
-	/*left:-20%;*/
+	
 	border-bottom: solid 60px transparent;
 	border-right: solid 60px rgba(128, 128, 128, 0.44);
 	border-top: solid 60px transparent;
@@ -166,15 +152,19 @@
 
 #web .content_section:nth-child(odd) figure:hover:after{
 	left:91%;
+	filter: opacity(1);
 }
 #web .content_section:nth-child(odd) figure:hover:before{
 	left:89%;
+	filter: opacity(1);
 }
 #web .content_section:nth-child(even) figure:hover:after{
 	left:-20%;
+	filter: opacity(1);
 }
 #web .content_section:nth-child(even) figure:hover:before{
 	left:-18%;
+	filter: opacity(1);
 }
 #web .content_section figure img{
 	filter:opacity(70%);
@@ -206,27 +196,59 @@
 		display:none;
 	}
 	 
-	.fab{
-		width: 0;
-     	height: 0;
-     	right: 0;
-     	bottom: 0;
-     	background: none;
-     	border-radius:0;
-     	box-shadow: none;
-     	border-right: 50px solid  #BA1111;
-     	border-top: 50px solid transparent;
-     	border-left: 50px solid transparent;
-     	border-bottom: 50px solid #BA1111;
-
+	#slideshow { 
+	    margin: 80px auto; 
+	    position: relative; 
+	    text-align: center;
+	    width: 100%;
+	    height: 200px;
+	    padding: 10px; 
 	}
-	.fab i{
-		font-size: 2em;
-		color:white;
-		transform: rotate(90deg);
-		position: absolute;
-		left:-1px;
-		top:5px;
+
+	#slideshow:before{
+		content: ' ';
+    	display: block;
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	width: 100%;
+    	height: 100%;
+    	filter: opacity(0.7);
+		-ms-background-size: cover;
+    	-o-background-size: cover;
+    	-moz-background-size: cover;
+    	-webkit-background-size: cover;
+    	 background-size:cover;
+	    background-image:url('../../img/cooking.jpg'); 
+	    background-position:50%,50%;
+	}
+	#slideshow > div { 
+	    position: absolute; 
+	    top: 10px; 
+	    left: 10px; 
+	    right: 10px; 
+	    bottom: 10px; 
+	}
+	#slideshow > div h3,
+	#slideshow > div p{
+		
+		color: white;
+	}
+	#slideshow > div h3{
+		margin: 45px auto 20px;
+	}
+	#slideshow > div h3:after,
+	#slideshow > div h3:before{
+		font-family: 'FontAwesome';
+		font-size: .6em;
+		position: relative;
+		top:-5px;
+	}
+	#slideshow > div h3:after{
+		content:'\f10e';
+	}
+	#slideshow > div h3:before{
+		content:'\f10d';
 	}
 }
 @media screen and (min-width: 950px){

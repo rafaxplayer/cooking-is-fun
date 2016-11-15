@@ -9,7 +9,7 @@
 @section('content')
 <div class="container-fluid">
 <div class="content_title">
-	<h2>Ingresa los datos de tu receta</h2>
+	<h2>{{trans('textsapp.insertdata')}}</h2>
 </div>
 	{!!Form::open(['route'=>'recipes.store','method'=>'post','class'=>'form-horizontal form_custom','files'=>true])!!}
 		@include('partials.form_recipes')

@@ -2,13 +2,13 @@ html, body {
     font-size: 16px;
     margin: 0;
     padding: 0;
-    background: #f4f7f7;;
-    font-family: "Varela Round", sans-serif
+    background: #f4f7f7;
+    font-family: "Varela Round", sans-serif !important;
+   
     }
 
-a {
+a,a:hover,a:focus {
     text-decoration: none;
-    cursor: pointer
 }
 
 ul {
@@ -25,7 +25,7 @@ header{
 }
 header #but_menu{
 
-    margin-left: -18px;
+    margin-left: -12px;
     width: 60px;
     height: 50px;
     cursor: pointer;
@@ -45,7 +45,7 @@ header h1{
     position: relative;
     top: -44px;;
     left: 30px;
-    width: 200px;
+    width: 300px;
     margin: 0;
     color:white;
     font-family: 'Annie Use Your Telescope', cursive;
@@ -56,21 +56,20 @@ header nav{
     left:0;
     top: 0;
     background:#B6AEAE;
-    width:250px;
+    width:260px;
     height:100vh;
     border: solid 1px black;
     z-index: 99999;
-    transition-duration: 1s;
+    transition-duration: .8s;
     -moz-box-shadow: 1px 2px 18px #000000;
     -webkit-box-shadow: 1px 2px 18px #000000;
     box-shadow: 1px 2px 18px #000000; 
 }
 
 header nav .closebut{
-
     width: 25px;
     height: 25px;
-    padding: 10px;
+    padding: 15px;
     float: right;
     position:relative;
     cursor: pointer;
@@ -81,7 +80,7 @@ header nav .closebut{
 }
 header nav .closebut i{
     position:absolute;
-    left:15px;
+    left:20px;
     color:white;
     font-size: 25px;
 }
@@ -100,16 +99,15 @@ header nav ul>li:hover a{
     color:white;
 }
 header nav ul>li> a{
-    display: block;
+    display: inline-block;
     color:black;
     font-weight: bold;
 }
 
 header nav #user{
-
-background: #383333;
-padding: 30px 10px 30px;
-color:white;
+    background: #383333;
+    padding: 30px 10px 30px;
+    color:white;
 }
 
 header nav #user figure{
@@ -120,10 +118,13 @@ header nav #user figure{
     margin: 0 5px 0 0;
 }
 header nav #user a{
-    display: inline-block;
+    
     font-size: .8em;
     color:white;
     margin: 0 6px;
+}
+header .header_back{
+    display: none;
 }
 .badge{
     float: right;
@@ -132,6 +133,9 @@ header nav #user a{
     border-radius: 50%;
     width: 100%;
 }
+.redtext{
+    color:red;
+}
 .menu_open{
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
@@ -139,9 +143,9 @@ header nav #user a{
     
 }
 .menu_close{
-    -webkit-transform: translateX(-250px);
-    -moz-transform: translateX(-250px);
-    transform: translateX(-250px);
+    -webkit-transform: translateX(-260px);
+    -moz-transform: translateX(-260px);
+    transform: translateX(-260px);
 }
 .container-fluid{
     margin:40px 0 60px; 
@@ -158,16 +162,96 @@ header nav #user a{
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
 }
+.fab{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #BA1111;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    -moz-box-shadow: 2px 4px 6px #9e9d9e;
+    -webkit-box-shadow: 2px 4px 6px #9e9d9e;
+    box-shadow: 1px 1px 1px #565556;
+}
+.fab i{
+    color:#e89292;
+    position:absolute;
+    font-size: 1.6em;
+    transform: rotate(90deg);
+    top:16px;
+    left: 16px;
+}
+.fa-reply-all:before{
+    display: none !important;
+}
+
+body.modal-open { 
+    overflow:inherit; 
+    padding-right:inherit !important; 
+}
 
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
     background-color: #BA1111;
     border-color: #BA1111;
 }
-header .header_back{
-    display: none;
+
+footer{
+    border-top: solid 1px #BA1111;
+    background: #383333;
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    text-align: center;
 }
-@media screen and (min-width: 480px){
+
+footer .footer-recipes{
+    margin: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.48)
+}
+
+footer .footer-recipes a{
+    color:white;
+    margin:0 5px;
+    font-size: 1.2em;
+
+}
+footer .footer-recipes a:before{
+    content:"-";
+    margin-right: 3px;
+}
+footer .langs{
+    margin: 40px 0;
+}
+footer .langs a{
+    display: inline-block;
+}
+
+footer .langs img{
+    width: 60px;
+    margin: 0 5px;
+    cursor:pointer;
+}
+
+footer .sing{
+    margin-top: 20px;
     
+}
+
+footer .sing p,
+footer .sing a
+{
+    color:#e84f4f;
+    font-size: 1em;
+}
+
+@media screen and (min-width: 480px){
+    footer .footer-recipes{
+        margin: 40px;
+    }
 }
 @media screen and (min-width: 600px){
     
@@ -181,25 +265,30 @@ header .header_back{
         width: 100%;
         height: 500px;
     }
+    header nav{
+        transition-duration:initial;
+    }
 
     header #title{
         top:100px;
-        left:35%;
+        left:0;
         text-decoration: none;
         color:white;
         position: absolute;
         display: inline-block;
-        width: auto;
+        width:100%;
         z-index: 99;
+        text-align: center;
         
          
     }
     header #title h1{
-        font-size: 5em;
+        font-size: 6em;
         text-shadow:5px 5px 5px black;
-        width: auto;
-        top:initial;
-        left:initial;
+        width: 800px;
+        top:0;
+        left:0;
+        margin:auto;
     }
     
     header #ioMenu{
@@ -224,25 +313,29 @@ header .header_back{
 
     header #ioMenu ul >li{
         display:inline-block;
-        padding:14px 10px;
-        
+        padding:0px;
         color:white;
-        margin: 0 5px;
     }
-    header #ioMenu ul >li:hover{
+    header #ioMenu ul >li:not(#user):hover{
         background:rgba(185, 183, 180, 0.58);
     }
     header #ioMenu ul>li> a{
         color:white;
+        padding:14px 10px;
         font-weight: 500;
+        
     }
+    header #ioMenu ul>li> a:active{
+        background: none;
+    }
+    
     header #ioMenu ul >li:not(#user):hover a{
         background: none;
         color: black;
         
     }
     header #ioMenu ul #user{
-        padding:11.5px 10px;       
+              
         background:#333;
         float: right;
         position: relative;
@@ -255,6 +348,10 @@ header .header_back{
         width: 30px;
         height: 30px;
     }
+    header #ioMenu ul #user a{
+       padding:11.5px 10px;
+    }
+
     header .header_back{
         display: block;
     }
@@ -273,22 +370,70 @@ header .header_back{
         
     }
     header .header_back .header-info{
-        top:200px;
-        left:35%;
+        top:220px;
+        left:0;
         text-align: center;
         color:white;
         position: absolute;
-        display: inline-block;
-        width: 400px;
+        width: 100%;
         z-index: 99;
         
+    }
+    header .header_back .header-info p{
+        width: 400px;
+        margin: 0 auto;
     }
     .menu_close{
         -webkit-transform: translateX(0px);
         -moz-transform: translateX(0px);
         transform: translateX(0px);
     }
+    .fab{
+        width: 0;
+        height: 0;
+        right: 0;
+        bottom: 0;
+        background: none;
+        border-radius:0;
+        box-shadow: none;
+        border-right: 50px solid  #BA1111;
+        border-top: 50px solid transparent;
+        border-left: 50px solid transparent;
+        border-bottom: 50px solid #BA1111;
+
+    }
+    .fab i{
+        font-size: 2em;
+        color:white;
+        position: absolute;
+        left:-1px;
+        top:5px;
+    }
+    .fab .fa-arrow-up{
+        display: none;
+        
+    }
+    footer .footer-recipes{
     
+        margin: 60px;
+        position:relative;
+    }
+    footer .langs img{
+    
+        width: 40px;
+    
+    }
+    footer .sing{
+        margin-top: 40px;
+    }
+
+    footer .footer-recipes a,
+    footer .sing p,
+    footer .sing a
+    {
+        font-size:.9em;
+
+    }
 }
 @media screen and (min-width: 950px){
     

@@ -8,7 +8,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="content_title">
-		<h2>Listado de recetas</h2>
+		<h2>{{trans('textsapp.listrecipes')}}</h2>
 	</div>
 	<div id="search">
 		{!!Form::select('category', App\Models\Category::lists('name','id'),null,['class'=>'form-control','id'=>'category','onchange'=>'onChangeCat(this.value)'])!!}
