@@ -7,9 +7,9 @@
         <h2>Verify Your account {{$user->name}}</h2>
 
         <div>
-            Thanks for creating an account with the verification demo app.
-            Please follow the link below to verify your email address
-            {{ URL::to('auth/register/verify/'.$code)}}
+            Thanks for signing up for Cooking-is-Fun, access the following link to verify your account and then log in with your credentials. a greeting.
+            <br/>
+            <a href="{{url('/auth/register/verify/'.$code)}}"/>Confirm Account</a>
 
         </div>
 

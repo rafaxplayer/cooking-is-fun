@@ -2,8 +2,8 @@
 return [
 	
 	'setlocale' => 'Ok, Language changed',
-	'registerok'=>'Ok register successful!! check your email for confirmation',
-	'registerfail'=>'Error on registration',
+	'register.ok'=>'Ok register successful!! check your email for confirmation',
+	'register.fail'=>'Error on registration',
 	'register.confirm.ok'=>'Ok ### your account is already activated, log in to start.',
 	'register.confirm.fail'=>'An error occurred with the confirmation',
 	'login.ok'=>'Ok, you have successfully authenticated',

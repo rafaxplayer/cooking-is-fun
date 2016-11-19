@@ -37,6 +37,7 @@ return [
 	"modal.options" => "Opciones de Usuario",
 	"modal.options.exit" => "Salir",
 	"modal.options.panel" => "Panel de control",
+	"modal.options.paneladmin" => "Panel de Administración",
 	"modal.options.button" => "Cerrar",
 	"sharewith" => "Compartir con ###"
 

@@ -1,0 +1,20 @@
+header{
+	height: inherit;
+}
+
+header .ioMenu,.header_back{
+
+	display:none !important;
+}
+header #title{
+    display: inline-block;
+    width: auto;
+    top:2px;
+    left: 10px;
+    z-index: 999;
+
+}
+header #title h1{
+    font-size: 2.4em;
+    width: auto;
+}

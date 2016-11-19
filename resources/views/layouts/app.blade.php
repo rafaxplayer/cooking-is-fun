@@ -86,7 +86,7 @@
 @yield('javascript')
 <div class="fab" onclick="$.scrollTo('header',500)">
     <i class="fa fa-reply-all"></i>
-    <i class="fa fa-arrow-up"></i>
+    
 </div>
 <footer>
     <aside> 

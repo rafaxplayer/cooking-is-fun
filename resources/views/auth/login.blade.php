@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading modal-header-danger">Login</div>
+				<div class="panel-heading modal-header-danger">{{trans('textsapp.login')}}</div>
 				<div class="panel-body">
 					{!! Form::open(['url' => 'auth/login', 'class' => 'form-horizontal']) !!}
 						<div class="form-group">

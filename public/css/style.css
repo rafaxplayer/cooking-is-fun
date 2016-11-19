@@ -184,9 +184,7 @@ header .header_back{
     top:16px;
     left: 16px;
 }
-.fa-reply-all:before{
-    display: none !important;
-}
+
 
 body.modal-open { 
     overflow:inherit; 
@@ -196,6 +194,11 @@ body.modal-open {
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
     background-color: #BA1111;
     border-color: #BA1111;
+}
+.panel-default>.panel-heading {
+    color: #f3eeee;
+    background-color: #e23535;
+    border-color: #e80606;
 }
 
 footer{
@@ -409,10 +412,7 @@ footer .sing a
         left:-1px;
         top:5px;
     }
-    .fab .fa-arrow-up{
-        display: none;
-        
-    }
+    
     footer .footer-recipes{
     
         margin: 60px;

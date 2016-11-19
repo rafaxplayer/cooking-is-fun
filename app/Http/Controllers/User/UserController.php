@@ -8,6 +8,7 @@ use Input;
 use Validator;
 use Hash;
 use Log;
+use Mail;
 use App\Models\Recipe;
 use App\Models\User;
 class UserController extends Controller {
@@ -22,7 +23,6 @@ class UserController extends Controller {
 	{
 		$user = Auth::user();
 
-		//$recipes = Recipe::where('user_id','=', $user->id)->paginate(10);
 		$recipes = Auth::user()->recipes()->paginate(10);
 		$recipes->setPath('recipes');
 		return view('user.user_panel',['user'=> $user ,'view'=>$param,'recipes'=>$recipes]);
@@ -31,15 +31,54 @@ class UserController extends Controller {
 
 	public function getContact()
 	{
-		$user = Auth::user();
-		return view('user.user_contact',compact('user'));
+		
+		return view('user.user_contact');
 		
 	}
 
-	public function postContact()
-	{
+	public function postContact(){
+
+		$postData = Input::all();
 		
-		//post
+		$rules = [
+	      'email' => 'required|email',
+	      'subject' => 'required|max:40|min:5',
+	      'message' => 'required|min:5',
+	    ];
+
+	    $messages = [
+
+	     'email.required' => 'Enter required email',
+	     'email.email' => 'Invalid email format',
+         'subject.required' => 'Email required subject',
+         'subject.min' => 'Subject  is short',
+         'subject.max' => 'Subject  is long',
+         'message.required' => 'Enter required message',
+         'message.min' => 'Message is short',
+
+     	];
+		
+     	$validator = Validator::make($postData, $rules, $messages);
+		
+		if($validator->fails()){
+
+		    return redirect('/user/contact')->withInput()->withErrors($validator);
+
+		}else{
+
+			$name=Auth::user()->name;
+			$email=Input::get('email');
+			$mess=Input::get('message');
+			$subject=Input::get('subject');
+			Mail::send('emails.contact', 
+				['name'=> $name,'mess'=>$mess,'email'=> $email],function($message) use($subject){
+
+				$message->from('amsapzs@gmail.com');
+    			$message->to('amsapzs@gmail.com', 'Admin')->subject($subject);
+
+			});
+			return redirect('/home')->with('message', 'Thanks for contacting us!');
+		}
 		
 	}
 	public function postPassword()

@@ -48,7 +48,6 @@ Route::group(['prefix' => 'user'], function(){
 
 	Route::get('/panel/{param?}','User\UserController@getPanel');
 	Route::get('/contact','User\UserController@getContact');
-
 	Route::post('/contact/send','User\UserController@postContact');
 	Route::post('/password','User\UserController@postPassword');
 	Route::post('/avatar','User\UserController@postAvatar');
@@ -56,6 +55,8 @@ Route::group(['prefix' => 'user'], function(){
 });
 
 Route::group(['prefix' => 'admin'], function(){
+	
+	Route::get('/','Admin\adminController@getPanel');
 
 });
 

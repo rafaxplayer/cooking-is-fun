@@ -37,6 +37,7 @@ return [
 	"modal.options" => "User Options",
 	"modal.options.exit" => "Logout",
 	"modal.options.panel" => "Control Panel",
+	"modal.options.paneladmin" => "Administrator Panel",
 	"modal.options.button" => "Close",
 	"sharewith" => "Share with ###"
 

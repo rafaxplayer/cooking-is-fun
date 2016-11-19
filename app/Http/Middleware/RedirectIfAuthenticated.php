@@ -3,7 +3,8 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
-
+use Session;
+use Auth;
 class RedirectIfAuthenticated {
 
 	/**

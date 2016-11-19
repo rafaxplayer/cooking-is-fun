@@ -93,9 +93,9 @@ class AuthController extends Controller {
 			$user->active=1;
 			$user->save();
 
-			return redirect('/home')->with('message',trans('message.register.confirm.ok'));
+			return redirect('/home')->with('message',trans('messages.register.confirm.ok'));
 		}
-		return redirect('/home')->with('message_warning',trans('message.register.confirm.fail'));
+		return redirect('/home')->with('message_warning',trans('messages.register.confirm.fail'));
 		
 	}
 

@@ -69,7 +69,7 @@ class RecipesController extends Controller {
 	 */
 	public function show($id){
 		
-		$recipe = Recipe::find($id);
+		$recipe = Recipe::findOrFail($id);
 			
 		$favorite = $recipe->usersfavorite->contains(Auth::user());
 		
@@ -84,7 +84,7 @@ class RecipesController extends Controller {
 	 */
 	public function edit($id){
 
-		$recipe = Recipe::find($id);
+		$recipe = Recipe::findOrFail($id);
 		return view('recipes.editrecipe',['recipe'=>$recipe]);
 	}
 
@@ -96,7 +96,7 @@ class RecipesController extends Controller {
 	 */
 	public function update($id){
 
-		$recipe = Recipe::find($id);
+		$recipe = Recipe::findOrFail($id);
 		$result = $this->editOrCreateRecipe($recipe);
 
 		if($result===true){
@@ -119,7 +119,7 @@ class RecipesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$recipe = Recipe::find($id);
+		$recipe = Recipe::findOrFail($id);
 		$recipe->delete();
 		return redirect("/recipes")->with('message','Ok receta eliminada con exito');
 	}
@@ -200,40 +200,39 @@ class RecipesController extends Controller {
 		
 	    $rules = [
 
-	     'name' => 'required|max:50|min:6',
-	     'imageUpload' =>'image|max:15500',
-	     'ingredients' =>'required|min:10',
-	     'elaboration' =>'required|min:10',
-	     'img_url' =>'url|max:255',
+		     'name' => 'required|max:50|min:6',
+		     'imageUpload' =>'image|max:15500',
+		     'ingredients' =>'required|min:10',
+		     'elaboration' =>'required|min:10',
+		     'img_url' =>'url|max:255',
 	     
 	    ];
 
 	    $messages = [
 
-	     'name.required'=>'Enter required name',
-	     'name.max'=>'Max name 50 chars',
-	     'name.min'=>'Min name 6 chars',
-         'imageUpload.image' => 'Image file is required',
-         'imageUpload.max' => 'Max size for image 15500kb',
-         'ingredients.required' => 'Require ingredients for recipe',
-         'ingredients.min' => 'Min size 10 chars',
-         'elaboration.required' => 'Require ingredients for recipe',
-         'elaboration.min' => 'Min size 10 chars',
-         'img_url.url' => 'Invalid format url',
-         'img_url.max' => 'Max size for url 255 chars'
+		     'name.required'=>'Enter required name',
+		     'name.max'=>'Max name 50 chars',
+		     'name.min'=>'Min name 6 chars',
+	         'imageUpload.image' => 'Image file is required',
+	         'imageUpload.max' => 'Max size for image 15500kb',
+	         'ingredients.required' => 'Require ingredients for recipe',
+	         'ingredients.min' => 'Min size 10 chars',
+	         'elaboration.required' => 'Require ingredients for recipe',
+	         'elaboration.min' => 'Min size 10 chars',
+	         'img_url.url' => 'Invalid format url',
+	         'img_url.max' => 'Max size for url 255 chars'
          
      	];
 
      	$validator = Validator::make($postData,$rules,$messages);
 
 		if($validator->fails()) {
-
-		      Log::info('Validator fails');
+		      
 		    return redirect('/recipes/create')->withInput()->withErrors($validator);
 		    exit();
 		}
     	else {
-			Log::info('Validator ok');			
+					
 			if(Input::hasFile('imageUpload')){
 
 				$name = str_random(10)."-".Input::file('imageUpload')->getClientOriginalName();
@@ -251,15 +250,21 @@ class RecipesController extends Controller {
 			
 			if(!empty(Input::get('img_url'))){
 
+				if(strpos($recipe->img_url,Input::get('img_url'))===false){
+					
+					$recipe->deleteImage();
+				}
+
 				$recipe->img_url = Input::get('img_url');
+
 			}
 
-			$recipe->name=Input::get('name');
-			$recipe->ingredients=Input::get('ingredients');
-			$recipe->elaboration=Input::get('elaboration');
+			$recipe->name = Input::get('name');
+			$recipe->ingredients = Input::get('ingredients');
+			$recipe->elaboration = Input::get('elaboration');
 			$recipe->elaboration_time = Input::get('elaboration_time');
 			$recipe->user_id = Auth::user()->id;
-			$categories_checked= Input::get('categories');
+			$categories_checked = Input::get('categories');
 			$result = $recipe->save();
  			
 			if($result){
@@ -268,7 +273,7 @@ class RecipesController extends Controller {
  				{
     				$recipe->categories()->sync($categories_checked);
  				}else{
- 					$recipe->categories()->attach(14);
+ 					$recipe->categories()->attach(15);
  				}
  				
 			}

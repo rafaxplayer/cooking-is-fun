@@ -7,15 +7,12 @@
 			<div class="panel  panel-default">
 				<div class="panel-heading">Contacta con el administrador</div>
 				<div class="panel-body">
-					
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('user/contact/send')}}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						
 
+					{!!Form::open(['url' => 'user/contact/send', 'method' => 'post','class' => 'form-horizontal'])!!}
 						<div class="form-group">
 							<label class="col-md-4 control-label">Tu E-Mail</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="text" class="form-control" name="email" value="{{ old('email') }}">
 								@if($errors->has('email'))
 								<div>
 									<label class="redtext">{{$errors->first('email')}}</label>	
@@ -51,12 +48,12 @@
 								<button type="submit" class="btn btn-primary">
 									Enviar
 								</button>
-								<a type="submit" class="btn btn-default">
+								<a href="{{url('/home')}}" class="btn btn-default">
 									Cancelar
 								</a>
 							</div>
 						</div>
-					</form>
+					{!!Form::close()!!}
 				</div>
 			</div>
 		</div>
