@@ -12,7 +12,7 @@
           <a href="{{url('user/panel/perfil')}}" class="list-group-item">{{trans('textsapp.modal.options.panel')}}</a>
           @if(Auth::check())
             @if(Auth::user()->isAdmin())
-               <a href="{{url('admin')}}" class="list-group-item">{{trans('textsapp.modal.options.paneladmin')}}</a>
+               <a href="{{url('admin/users')}}" class="list-group-item">{{trans('textsapp.modal.options.paneladmin')}}</a>
             @endif
           @endif
           

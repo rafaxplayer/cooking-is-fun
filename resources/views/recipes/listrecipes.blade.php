@@ -20,7 +20,7 @@
 	<div id="list_recipes">
 		<div class="row">
 			@foreach($recipes as $recipe)
-				<div class="col-sm-4 col-xs-12">
+				<div class="col-md-3 col-sm-4 col-xs-12">
 				<a href="{{url('/recipes/'.$recipe->id)}}">
 					<div class="item_recipe">
 						@if(Auth::check() && Auth::user()->favorites->contains($recipe))

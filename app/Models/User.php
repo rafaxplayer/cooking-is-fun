@@ -34,7 +34,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         	//delete recipes for user
             Recipe::where('user_id', '=',$model->id)->delete();
             //delete avatar
-            $this->deleteAvatar();
+            $model->deleteAvatar();
 
         });
         
@@ -48,7 +48,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $path = str_replace($baseurl,$basepath,$this->avatar);
 		
         if(File::exists($path)){
-        	Log::info('deleting');
+        	
             File::delete($path);
         }
 

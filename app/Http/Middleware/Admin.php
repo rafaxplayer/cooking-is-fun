@@ -18,7 +18,7 @@ class Admin {
             return $next($request);
         }
 
-        return redirect('/home')->with('message','no tienes permisos para acceder a esta zona');
+        return redirect('/home')->with('message',trans('messages.accessdenied'));
 	}
 
 

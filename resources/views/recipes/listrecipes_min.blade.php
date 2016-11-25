@@ -1,6 +1,6 @@
 <div class="row">
 @foreach($recipes as $recipe)
-	<div class="col-sm-4 col-xs-12">
+	<div class="col-md-3 col-sm-4 col-xs-12">
 		<div class="item_recipe">
 			<figure>
 				<img src="{{$recipe->img_url}}"  alt="imagen de la receta">

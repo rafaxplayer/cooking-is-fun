@@ -40,7 +40,7 @@ class Authenticate {
 			}
 			else
 			{
-				return redirect('/home');
+				return redirect('/home')->with('message',trans('messages.accessdenied'));
 			}
 		}
 

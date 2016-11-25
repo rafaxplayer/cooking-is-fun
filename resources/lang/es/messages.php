@@ -8,4 +8,5 @@ return [
 	'register.confirm.fail'=>'Error la confirmación es fallida',
 	'login.ok'=>'Ok se ha autentificado correctamente',
 	'login.fail'=>'Error al autentificarse, datos incorrectos o su cuenta no esta activa',
+	'accessdenied'=>'No tienes permisos para acceder a esta zona'
 ];

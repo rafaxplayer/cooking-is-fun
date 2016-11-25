@@ -11,10 +11,9 @@ function onChangeCat(id){
 }
 
 function search(pattern){
-
-	console.log(pattern);
-	var token=$('meta[name="csrf-token"]').attr('content');
-	var parametros={'pattern':pattern,'_token':token};
+	
+	var token = $('meta[name="csrf-token"]').attr('content');
+	var parametros = {'pattern':pattern,'_token':token};
 
 	$.post('http://localhost/cooking-is-fun/recipes/search', parametros, function(data){
 		$( "#list_recipes" ).html(data);

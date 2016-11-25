@@ -23,7 +23,8 @@
 					<a href="" data-toggle="modal" data-target="#modalconfirm" data-name="{{$recipe->name}}" data-id="{{$recipe->id}}"><i class="fa fa-trash"></i></a>
 					<a href="#" onclick="window.print();"><i class="fa fa-print"></i></a>					
 				</div>
-				@else
+				@endif
+				@if(Auth::user()->id != $recipe->user_id or Auth::user()->isAdmin())
 				<div class="favorites">
 					<a href="{{$favorite?url('recipes/favorite/remove/'.$recipe->id):url('recipes/favorite/'.$recipe->id)}}" class="btn-favorites"><i class="fa fa-star"></i>{{$favorite ?' Eliminar de favoritos':' Añadir a favoritos'}}</a>	
 				</div>

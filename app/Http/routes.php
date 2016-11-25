@@ -56,8 +56,13 @@ Route::group(['prefix' => 'user'], function(){
 
 Route::group(['prefix' => 'admin'], function(){
 	
-	Route::get('/','Admin\adminController@getPanel');
-
+	Route::get('/{param}','Admin\adminController@getPanel');
+	Route::get('/user/{id}','Admin\adminController@getUserEdit');
+	Route::post('/user','Admin\adminController@postUserEdit');
+	Route::get('/search/user','Admin\adminController@searchUser');
+	Route::get('/search/recipes/withpattern','Admin\adminController@searchRecipesWithPattern');
+	Route::get('/search/recipes/withusername','Admin\adminController@searchRecipesWithUsername');
+	Route::get('/delete/user/{id}','Admin\adminController@deleteUser');
 });
 
 Route::get('/setlang/{lang}', function($lang)

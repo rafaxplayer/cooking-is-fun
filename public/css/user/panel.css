@@ -1,10 +1,7 @@
 .row{
 	margin: 30px auto;
 }
-.menu{
-	
-	
-}
+
 .page-header{
 	padding-bottom: 0;
 	margin: 0 10px;
@@ -22,6 +19,7 @@
 }
 .content section .perfil_avatar figure{
 	width: 150px;
+	height: 150px;
 }
 .content section .info-perfil h2{
 	text-transform: capitalize;
@@ -53,9 +51,10 @@ header .header_back{
 	color:initial;
 }
 #recipes .item-recipe{
-	margin: 5px 10px;
+	margin: 5px auto;
     background: white;
     cursor: pointer;
+    max-width: 500px;
     -moz-box-shadow: 2px 4px 6px #9e9d9e;
     -webkit-box-shadow: 2px 4px 6px #9e9d9e;
     box-shadow: 2px 4px 6px #9e9d9e; 
@@ -66,16 +65,20 @@ header .header_back{
 }
 
 #recipes .item-recipe a>*{
-	display: inline-block;
+	display:block;
 	vertical-align: top;
 	padding: 5px;
 }
 #recipes .item-recipe figure{
-	width: 100px;
+	/*width: 100px;
+	height: 100px;*/
+
 	
 }
 #recipes .item-recipe figure img{
 	width: 100%;
+
+	height: 100%;
 }
 #recipes .item-recipe .info h3{
 	margin:10px 0;
@@ -109,6 +112,17 @@ header .header_back{
 		width: 300px;
 		margin: 0;
 
+	}
+	#recipes .item-recipe{
+		margin: 5px 10px;
+	}
+	#recipes .item-recipe a>*{
+		display:inline-block;
+	}
+	#recipes .item-recipe figure{
+		width: 100px;
+		height: 100px;
+	
 	}
 	
 
