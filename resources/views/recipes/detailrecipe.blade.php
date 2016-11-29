@@ -45,9 +45,9 @@
 			<label for="">Elaboración</label>
 			<p>{!!nl2br($recipe->elaboration) !!}</p>
 			<div class="socialshare">
-				<a href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank" class="btn btn-primary"><i class="fa fa-facebook"></i> {{str_replace('###','Facebook',trans('textsapp.sharewith'))}}</a>
-				<a href="https://twitter.com/?status=Me gusta esta receta {{Request::fullUrl()}}" target="_blank" class="btn btn-info"><i class="fa fa-twitter"></i> {{str_replace('###','Twitter',trans('textsapp.sharewith'))}}</a>
-				<a href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank" class="btn btn-danger"><i class="fa fa-google-plus"></i> {{str_replace('###','Google++',trans('textsapp.sharewith'))}}</a>
+				<a href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}" target="_blank" class="btn btn-primary"><i class="fa fa-facebook"></i> {{Lang::get('textsapp.sharewith',['red'=>'Facebook'])}}</a>
+				<a href="https://twitter.com/?status=Me gusta esta receta {{Request::fullUrl()}}" target="_blank" class="btn btn-info"><i class="fa fa-twitter"></i> {{Lang::get('textsapp.sharewith',['red'=>'Twitter'])}}</a>
+				<a href="https://plus.google.com/share?url={{Request::fullUrl()}}" target="_blank" class="btn btn-danger"><i class="fa fa-google-plus"></i> {{trans('textsapp.sharewith',['red'=>'Google++'])}}</a>
 			</div>
 		</div>
 	</div>

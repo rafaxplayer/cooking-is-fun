@@ -1,5 +1,4 @@
 
-
 $('#modalconfirm').on('show.bs.modal', function (event) {
   var a = $(event.relatedTarget);
   var recipename = a.data('name');

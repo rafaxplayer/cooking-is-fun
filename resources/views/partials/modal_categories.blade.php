@@ -8,13 +8,13 @@
       </div>
       <div class="modal-body">
         @foreach(App\Models\Category::all() as $cat)
-            <div class="input-group">
-              <span class="input-group-addon">
-                <input type="checkbox" name="categories[{{$cat->id}}]" value="{{$cat->id}}" aria-label="...">
-              </span>
-              <input value=" {{$cat->name}}"/>
-            </div>
-          @endforeach
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="checkbox" name="categories[{{$cat->id}}]" value="{{$cat->id}}" aria-label="..."{{isset($recipe) && $cats->contains($cat)?'checked':''}}>
+          </span>
+          <input value=" {{$cat->name}}"/>
+        </div>
+        @endforeach
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

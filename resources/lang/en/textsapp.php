@@ -31,7 +31,7 @@ return [
 	"save" => "Save",
 	"clean" => "Clean",
 	"insertdata" => "Enter your recipe data",
-	"edit" => "Edit ",
+	"edit" => "Edit :recipe",
 	"listrecipes" => "List Recipes",
 	"modal.deleterecipe" => "Delete Recipe",
 	"modal.options" => "User Options",
@@ -39,6 +39,6 @@ return [
 	"modal.options.panel" => "Control Panel",
 	"modal.options.paneladmin" => "Administrator Panel",
 	"modal.options.button" => "Close",
-	"sharewith" => "Share with ###"
+	"sharewith" => "Share with :red"
 
 ];

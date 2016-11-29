@@ -174,7 +174,9 @@ footer{
     margin: 10px 0 5px 0;
     overflow: hidden;
 }
-
+.search .input-group{
+    margin:5px;
+}
 .search .input-group-addon{
     cursor:pointer;
 }
@@ -293,20 +295,26 @@ body.modal-open {
     border-color: #e80606;
 }
 
-
-
-@media screen and (min-width: 480px){
-    
-}
-@media screen and (min-width: 600px){
-    
-}
 @media screen and (min-width: 767px){
 
     #but_menu,.closebut{
         display:none;
     }
-  
+    header #title{
+        text-decoration: none;
+        position: absolute;
+        top:5px;
+        left:10px;
+        z-index: 999999;
+    }
+
+    header h1{
+        margin:0;
+        text-shadow:5px 5px 5px black;
+        top:0;
+        left:0;
+        
+    }
     header #ioMenu{
         text-align:center;
         background:#BA1111;;
@@ -369,6 +377,4 @@ body.modal-open {
     }
 
 }
-@media screen and (min-width: 950px){
-    
-}
+

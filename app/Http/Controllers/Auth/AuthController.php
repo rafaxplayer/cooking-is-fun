@@ -2,9 +2,6 @@
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
 use Validator;
 use Input;
 use Mail;
@@ -12,7 +9,6 @@ use Auth;
 //use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller {
 
-	
 
     //use AuthenticatesAndRegistersUsers;
 	
@@ -28,25 +24,14 @@ class AuthController extends Controller {
 		$postData = Input::all();
 
 	    $rules = [
-	      'name' => 'required|max:22|min:6',
+	      'name' => 'required|max:22|min:4',
 	      'email' => 'required|email|unique:users',
 	      'password' => 'required',
 	      'password_confirmation' => 'required|same:password'
 	    ];
 
-	    $messages = [
-	     'name.required'=>'Enter required name',
-	     'name.max'=>'Max name 22',
-	     'name.min'=>'Min name 6',
-         'email.required' => 'Enter email address',
-         'email.email' => 'Invalid email format',
-         'email.unique' => 'Email exixts',
-         'password.required' => 'You need a password',
-         'password_confirmation.required' => 'Email confirm is required',
-         'password_confirmation.same' => 'Email confirm is not equal'
-     	];
 
-     	$validator = Validator::make($postData, $rules,$messages);
+     	$validator = Validator::make($postData, $rules);
 
 		if ($validator->fails()) {
 		      
@@ -112,15 +97,7 @@ class AuthController extends Controller {
 	      
 	    ];
 
-	    $messages = [
-	     
-         'email.required' => 'Enter email address',
-         'email.email' => 'Invalid email format',
-         'password.required'=>'Enter required name'
-         
-     	];
-
-     	$validator = Validator::make($postData, $rules,$messages);
+     	$validator = Validator::make($postData, $rules);
 
 		if ($validator->fails()) {
 		      

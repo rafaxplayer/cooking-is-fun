@@ -40,7 +40,7 @@
 }
 .form_custom figure,
 .details figure{
-    max-width:350px;
+    
     max-height: 350px;
     margin: 0 auto 20px;
 }
@@ -113,11 +113,11 @@ max-width: 300px;
 }
 .item_recipe .star-favorite{
     position:absolute;
-    right: 20px;
-    top:10px; 
+    right: 25px;
+    bottom: 30px;
 }
 .item_recipe .star-favorite i{
-    font-size: 1.2em;
+    font-size: 1.5em;
     color:#f3d406;
 }
 .item_recipe .info h3{
@@ -158,6 +158,8 @@ max-width: 300px;
     width: 100%;
     margin-bottom: 15px;
     font-size: 1.2em;
+    color: #8a6d3b;
+    font-weight: 600;
 }
 
 .details label:before{
@@ -246,10 +248,4 @@ max-width: 300px;
         padding: 5px;
         vertical-align: top;
     }
-}
-@media screen and (min-width: 767px){
-    
-}
-@media screen and (min-width: 950px){
-    
 }

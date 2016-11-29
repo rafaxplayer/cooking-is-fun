@@ -1,14 +1,10 @@
 <?php namespace App\Http\Controllers\Recipes;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input;
 use Auth;
 use Log;
 use Validator;
 use App\Models\Recipe;
-use Illuminate\Http\Request;
-
 class RecipesController extends Controller {
 
 
@@ -50,11 +46,11 @@ class RecipesController extends Controller {
 		
 		if($result === true){
 				
-			return redirect("/recipes")->with('message','Ok receta guardada con exito');
+			return redirect("/recipes")->with('message',trans('messages.recipes.save'));
 
 		}else if($result === false){
 
-			return redirect("/recipes/create")->with('message_warning','Ocurrio un error al guardar la receta');
+			return redirect("/recipes/create")->with('message_warning',trans('messages.recipes.errorsave'));
 		}else{
 			return $result;
 		}
@@ -85,7 +81,8 @@ class RecipesController extends Controller {
 	public function edit($id){
 
 		$recipe = Recipe::findOrFail($id);
-		return view('recipes.editrecipe',['recipe'=>$recipe]);
+		$cats = $recipe->categories()->get();
+		return view('recipes.editrecipe',['recipe'=>$recipe,'cats'=>$cats]);
 	}
 
 	/**
@@ -101,11 +98,11 @@ class RecipesController extends Controller {
 
 		if($result===true){
 				
-			return redirect("/recipes/".$id)->with('message','Ok receta actualizada con exito');
+			return redirect("/recipes/".$id)->with('message',trans('messages.recipes.update'));
 
 		}else if($result===false){
 
-			return redirect("/recipes/".$id."/edit")->with('message_warning','Ocurrio un error al guardar la receta');
+			return redirect("/recipes/".$id."/edit")->with('message_warning',trans('messages.recipes.errorsave'));
 		}else{
 			return $result;
 		}
@@ -121,7 +118,7 @@ class RecipesController extends Controller {
 	{
 		$recipe = Recipe::findOrFail($id);
 		$recipe->delete();
-		return redirect("/recipes")->with('message','Ok receta eliminada con exito');
+		return redirect("/recipes")->with('message',trans('messages.recipes.delete'));
 	}
 
 	/**
@@ -134,14 +131,14 @@ class RecipesController extends Controller {
 
 		$user=Auth::user();
 		$user->favorites()->attach($recipeid);
-		return redirect('recipes/'.$recipeid)->with('message','Ok, Receta añadida a favoritos');
+		return redirect('recipes/'.$recipeid)->with('message',trans('messages.recipes.favorites'));
 	}
 
 	public function removeFavorites($recipeid){
 
 		$user = Auth::user();
 		$user->favorites()->detach($recipeid);
-		return redirect('recipes/'.$recipeid)->with('message','Ok, Receta Eliminada de favoritos');
+		return redirect('recipes/'.$recipeid)->with('message',trans('messages.recipes.favoritesdelete'));
 	}
 	//End Favorites
 
@@ -200,7 +197,7 @@ class RecipesController extends Controller {
 		
 	    $rules = [
 
-		     'name' => 'required|max:50|min:6',
+		     'namerecipe' => 'required|max:50|min:6',
 		     'imageUpload' =>'image|max:15500',
 		     'ingredients' =>'required|min:10',
 		     'elaboration' =>'required|min:10',
@@ -208,23 +205,7 @@ class RecipesController extends Controller {
 	     
 	    ];
 
-	    $messages = [
-
-		     'name.required'=>'Enter required name',
-		     'name.max'=>'Max name 50 chars',
-		     'name.min'=>'Min name 6 chars',
-	         'imageUpload.image' => 'Image file is required',
-	         'imageUpload.max' => 'Max size for image 15500kb',
-	         'ingredients.required' => 'Require ingredients for recipe',
-	         'ingredients.min' => 'Min size 10 chars',
-	         'elaboration.required' => 'Require ingredients for recipe',
-	         'elaboration.min' => 'Min size 10 chars',
-	         'img_url.url' => 'Invalid format url',
-	         'img_url.max' => 'Max size for url 255 chars'
-         
-     	];
-
-     	$validator = Validator::make($postData,$rules,$messages);
+     	$validator = Validator::make($postData,$rules);
 
 		if($validator->fails()) {
 		      
@@ -232,7 +213,8 @@ class RecipesController extends Controller {
 		    exit();
 		}
     	else {
-					
+
+			
 			if(Input::hasFile('imageUpload')){
 
 				$name = str_random(10)."-".Input::file('imageUpload')->getClientOriginalName();
@@ -259,7 +241,7 @@ class RecipesController extends Controller {
 
 			}
 
-			$recipe->name = Input::get('name');
+			$recipe->name = Input::get('namerecipe');
 			$recipe->ingredients = Input::get('ingredients');
 			$recipe->elaboration = Input::get('elaboration');
 			$recipe->elaboration_time = Input::get('elaboration_time');

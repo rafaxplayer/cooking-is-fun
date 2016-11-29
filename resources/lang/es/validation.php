@@ -86,9 +86,56 @@ return [
 	*/
 
 	'custom' => [
-		'attribute-name' => [
-			'rule-name' => 'custom-message',
+		'name' => [
+
+			'required' 	=> 'Introduce un nombre',
+			'max' 		=> 'Maximo de caracteres 22',
+			'min'		=> 'Minimo de caracteres 4',
+
 		],
+		'email'	=> [
+
+			'required'	=>	'El email es requerido',
+			'email'		=>	'El formato de email no es valido',
+			'unique'	=>	'Esta cuenta ya esta registrada',
+
+		],
+		'password' => [
+
+			'required'	=>	'La contraseña es necesaria'
+		],
+		'password_confirmation'	=> [
+
+			'required'	=>	'Confirmación de contraseña es necesario',
+			'same'		=>	'Las contraseñas no coinciden',
+		],
+		'namerecipe' => [
+
+			'required' 	=> 'Introduce un nombre de receta',
+			'max' 		=> 'Maximo de caracteres 50',
+			'min'		=> 'Minimo de caracteres 6',
+		],
+		'imageUpload' => [
+
+			'image'		=>	'El archivo de imagen es invalido',
+			'max' 		=> 'Tamaño maximo de imagen 15500 kb',
+		],
+		'ingredients' => [
+
+			'required'	=>	'Introduce ingredientes para tu receta',
+			'min'		=>	'Minimo 10 caracteres',
+		],
+		'elaboration' => [
+
+			'required'	=>	'Describe la elaboracion de tu receta',
+			'min'		=>	'Minimo 10 caracteres',
+		],
+		'img_url' => [
+
+			'url'		=>	'Formato enlace invalido',
+			'max'		=>	'Tamaño maximo de url 255 caracteres'
+		]
+
 	],
 
 	/*

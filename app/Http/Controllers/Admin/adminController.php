@@ -63,7 +63,7 @@ class adminController extends Controller {
 				}
 			}
 		}
-		return redirect('admin/users')->with('message','No se encontraron usuarios');
+		return redirect('admin/users')->with('message_warning',trans('messages.admin.usersnotfound'));
 	}
 
 	public function searchRecipesWithPattern(){
@@ -82,7 +82,7 @@ class adminController extends Controller {
 			}
 		}
 		
-		return redirect('admin/recipes')->with('message','No se encontraron recetas');
+		return redirect('admin/recipes')->with('message_warning',trans('messages.admin.recipesnotfound'));
 	}
 
 	public function searchRecipesWithUsername(){
@@ -102,16 +102,16 @@ class adminController extends Controller {
 				}
 			}
 		}
-		return redirect('admin/recipes')->with('message','No se encontraron recetas');
+		return redirect('admin/recipes')->with('message_warning',trans('messages.admin.recipesnotfound'));
 	}
 	public function deleteUser($id){
 
 		if(Auth::user()->id == $id){
-			return redirect()->back()->with('message_warning','No te puedes eliminar tu mismo');
+			return redirect()->back()->with('message_warning',trans('messages.admin.deleteiam'));
 		}
 		$user = User::findOrFail($id);
 		$user->delete();
-		return redirect()->back()->with('message','Usuario eliminado');
+		return redirect()->back()->with('message',trans('messages.admin.userdeleted'));
 	}
 
 	public function postUserEdit()
@@ -184,10 +184,10 @@ class adminController extends Controller {
 			$result=$user->save();
 
 			if($result){
-				return redirect('admin/users')->with('message','Ok usuario atualizado');
+				return redirect('admin/users')->with('message',trans('messages.admin.userupdated'));
 			}else{
 
-				return redirect('admin/users')->with('message_warning','Ocurrio un error al actualizar el usuario');
+				return redirect('admin/users')->with('message_warning',trans('messages.admin.userupdateerror'));
 			}
 
     	}

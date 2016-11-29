@@ -86,9 +86,56 @@ return [
 	*/
 
 	'custom' => [
-		'attribute-name' => [
-			'rule-name' => 'custom-message',
+		'name' => [
+
+			'required' 	=> 'The name field is required.',
+			'max' 		=> 'Maxim 22 characters.',
+			'min'		=> 'The name must be at least 4 characters.',
+
 		],
+		'email'	=> [
+
+			'required'	=>	'The email field is required.',
+			'email'		=>	'Invalid format email.',
+			'unique'	=>	'This account is already registered',
+
+		],
+		'password' => [
+
+			'required'	=>	'The password field is required.'
+		],
+		'password_confirmation'	=> [
+
+			'required'	=>	'The confirm password field is required.',
+			'same'		=>	'Passwords do not match',
+		],
+		'namerecipe' => [
+
+			'required' 	=> 'The name field is required.',
+			'max' 		=> 'Maxim 50 characters.',
+			'min'		=> 'The name must be at least 6 characters.',
+		],
+		'imageUpload' => [
+
+			'image'		=>	'Invalid image file',
+			'max' 		=> 'Maxim sizr for image 15500 kb',
+		],
+		'ingredients' => [
+
+			'required'	=>	'Enter ingredients for your recipe',
+			'min'		=>	'Min 10 characters',
+		],
+		'elaboration' => [
+
+			'required'	=>	'Enter elaboration description for your recipe',
+			'min'		=>	'Min 10 characters',
+		],
+		'img_url' => [
+
+			'url'		=>	'Invalid format url',
+			'max'		=>	'Maxim size for url 255 characters'
+		]
+
 	],
 
 	/*

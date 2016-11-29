@@ -10,8 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title',trans('textsapp.title'))</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-    
-    
     <link rel="stylesheet" href="{{asset('public/css/animate.css')}}"/>
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet">
@@ -19,7 +17,6 @@
     <link rel="stylesheet" href="{{asset('public/css/bootstrap/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('public/css/style.css')}}"/>
     @yield('css')
-    
 </head>
 <body>
 <header>
@@ -34,15 +31,13 @@
         <ul>
             <li id="user">
                 @if(Auth::check())
-                    <a href="#" data-toggle="modal" data-target="#modaluser">
+                    <a id="login_user" href="#" data-toggle="modal" data-target="#modaluser">
                     <figure>
                         <img class="avatar" src="{{Auth::user()->avatar}}" alt="imagen usuario" onerror="errorImage(this,2)">
                     </figure>
-                    
                 	{{Auth::user()->name}}</a>
-                    
                 @else
-                	<a href="{{url('auth/login')}}"><p>{{trans('textsapp.login')}}</p></a>&nbsp;|&nbsp;<a href="{{url('auth/register')}}">{{trans('textsapp.register')}}</a>
+                	<a href="{{url('auth/login')}}">{{trans('textsapp.login')}}</a>|<a href="{{url('auth/register')}}">{{trans('textsapp.register')}}</a>
                 @endif
             </li>
             <li>

@@ -31,7 +31,7 @@ return [
 	"save" => "Guardar",
 	"clean" => "Limpiar",
 	"insertdata" => "Ingresa los datos de tu receta",
-	"edit" => "Edit ",
+	"edit" => "Editar :recipe",
 	"listrecipes" => "Listado de recetas",
 	"modal.deleterecipe" => "Eliminar receta",
 	"modal.options" => "Opciones de Usuario",
@@ -39,7 +39,6 @@ return [
 	"modal.options.panel" => "Panel de control",
 	"modal.options.paneladmin" => "Panel de Administración",
 	"modal.options.button" => "Cerrar",
-	"sharewith" => "Compartir con ###"
-
+	"sharewith" => "Compartir con :red"
 
 ];

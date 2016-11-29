@@ -46,6 +46,8 @@ $(window).scroll(function() {
  });
 $(document).on('ready',function(){
 
+  $('.fab').css('display','none');
+  
 	$('.closebut,#but_menu,#ioMenu a').click(function(){
 		$('#ioMenu').toggleClass('menu_close');
 		

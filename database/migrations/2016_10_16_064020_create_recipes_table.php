@@ -20,7 +20,7 @@ class CreateRecipesTable extends Migration {
 			$table->text('elaboration');
 			$table->text('ingredients');
 			$table->integer('user_id');
-			$table->string('img_url');
+			$table->string('img_url')->default(url('/cooking-is-fun/public/img/recipe_placeholder.png'));
 			$table->timestamps();
 		});
 	}

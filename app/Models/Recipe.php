@@ -5,7 +5,6 @@ use File;
 class recipe extends Model {
 
 	protected $table = 'recipes';
-
 	
 	protected $fillable = ['id','name', 'ingredients', 'elaboration','elaboration_time','user_id','img_url'];
 
