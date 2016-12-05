@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('css')
+<link rel="stylesheet" href="{{asset('public/css/easy-autocomplete.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('public/css/recipes/recipes.css')}}"/>
 @stop
 @section('javascript')
+<script type="text/javascript" src="{{asset('public/js/jquery.easy-autocomplete.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/js/recipes/list_recipes.js')}}"></script>
 @stop
 @section('content')
@@ -11,14 +13,19 @@
 		<h2>{{trans('textsapp.listrecipes')}}</h2>
 	</div>
 	<div id="search">
-		{!!Form::select('category', App\Models\Category::lists('name','id'),null,['class'=>'form-control','id'=>'category','onchange'=>'onChangeCat(this.value)'])!!}
+		<div class="input-group">	
+			
+			{!!Form::select('category', App\Models\Category::lists('name','id'),null,['class'=>'form-control','id'=>'category','onchange'=>'onChangeCat(this.value)'])!!}
+		</div>
+		
 		<div class="input-group">
 			{!!Form::text('search',null,['class'=>'form-control','id'=>'InputSearch','placeholder'=>'Search...','onkeyup'=>'search(this.value)'])!!}
 	       	<div class="input-group-addon"><i class="fa fa-search"></i></div>
 	    </div>
 	</div>
 	<div id="list_recipes">
-		<div class="row">
+		<div class="row-fluid">
+		@if($recipes->count() > 0)
 			@foreach($recipes as $recipe)
 				<div class="col-md-3 col-sm-4 col-xs-12">
 				<a href="{{url('/recipes/'.$recipe->id)}}">
@@ -42,8 +49,17 @@
 					</a>
 				</div>
 			@endforeach
+		@else
+			<div class="empty">
+				<figure>
+					<img src="{{asset('public/img/no-recipes.png')}}" alt="">
+				</figure>
+				<h4>{{trans('textsapp.norecipes')}}</h4>
+			</div>
+		@endif
 		</div>
 	{!!$recipes->render()!!}
 	</div>
 </div>
+
 @stop

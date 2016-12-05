@@ -5,9 +5,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\User;
+use App\Models\Settings;
 use Input;
 use Validator;
 use Auth;
+use DB;
 class adminController extends Controller {
 
 
@@ -32,6 +34,10 @@ class adminController extends Controller {
 				$recipes = Recipe::paginate(15);
 				$recipes->setPath('recipes');
 				return view('admin.panel',['view'=>$param,'recipes'=>$recipes]);
+				break;
+			case 'settings':
+			
+				return view('admin.panel',['view'=>$param]);
 				break;
 			default:
 				$users = User::paginate(20);
@@ -104,6 +110,7 @@ class adminController extends Controller {
 		}
 		return redirect('admin/recipes')->with('message_warning',trans('messages.admin.recipesnotfound'));
 	}
+
 	public function deleteUser($id){
 
 		if(Auth::user()->id == $id){
@@ -112,6 +119,15 @@ class adminController extends Controller {
 		$user = User::findOrFail($id);
 		$user->delete();
 		return redirect()->back()->with('message',trans('messages.admin.userdeleted'));
+	}
+
+	public function setMantenimiento(){
+
+		$bool = Input::get('manten',0);
+		$settings = Settings::findOrFail(1);
+		$settings->value = $bool;
+		$settings->save();
+		
 	}
 
 	public function postUserEdit()

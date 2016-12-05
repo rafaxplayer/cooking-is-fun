@@ -5,8 +5,8 @@
 @section('javascript')
 <script type="text/javascript" src="{{asset('public/js/recipes/recipe.js')}}"></script>
 @stop
-@include('partials.modal_confirm')
 @section('content')
+@include('partials.modal_confirm')
 <div class="container-fluid">
 	<div class="content_title">
 		<h2>{{$recipe->name}}</h2>
@@ -24,7 +24,7 @@
 					<a href="#" onclick="window.print();"><i class="fa fa-print"></i></a>					
 				</div>
 				@endif
-				@if(Auth::user()->id != $recipe->user_id or Auth::user()->isAdmin())
+				@if(Auth::user()->id != $recipe->user_id or (Auth::user()->isAdmin() and Auth::user()->id != $recipe->user_id))
 				<div class="favorites">
 					<a href="{{$favorite?url('recipes/favorite/remove/'.$recipe->id):url('recipes/favorite/'.$recipe->id)}}" class="btn-favorites"><i class="fa fa-star"></i>{{$favorite ?' Eliminar de favoritos':' Añadir a favoritos'}}</a>	
 				</div>

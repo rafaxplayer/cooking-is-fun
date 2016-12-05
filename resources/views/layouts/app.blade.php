@@ -9,7 +9,7 @@
     <meta name="keywords" content="Recetas en linea ,Recetas en español">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title',trans('textsapp.title'))</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/favicon.ico')}}"/>
     <link rel="stylesheet" href="{{asset('public/css/animate.css')}}"/>
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet">
@@ -65,7 +65,6 @@
     <figure><img src="{{asset('public/img/header.jpg')}}" alt=""></figure>
     <div class="header-info">  
         <p>{{trans('textsapp.headerinfo')}}</p>
-
     </div>
 </div>
 </header>

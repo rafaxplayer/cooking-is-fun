@@ -34,3 +34,12 @@ $('#modal_admin_confirm').on('show.bs.modal', function (event) {
   }); 
 })
 
+$('#manten').change(function(){
+  var token = $('meta[name="csrf-token"]').attr('content');
+  var bool=$(this).prop('checked')?1:0;
+  var parametros={'manten' : bool,'_token':token};
+  $.post('http://localhost/cooking-is-fun/admin/manten',parametros,function(data){
+    
+  });
+
+});

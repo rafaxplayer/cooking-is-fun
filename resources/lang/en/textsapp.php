@@ -33,6 +33,7 @@ return [
 	"insertdata" => "Enter your recipe data",
 	"edit" => "Edit :recipe",
 	"listrecipes" => "List Recipes",
+	"norecipes" => "Upps! No Recipes.",
 	"modal.deleterecipe" => "Delete Recipe",
 	"modal.options" => "User Options",
 	"modal.options.exit" => "Logout",

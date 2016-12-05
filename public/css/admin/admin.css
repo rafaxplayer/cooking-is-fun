@@ -201,7 +201,7 @@ footer{
 }
 .contentdata ul:not(.pagination) > li{
     overflow: hidden;
-    margin:5px 0;
+    margin:5px 2px;
     cursor: pointer;
 }
 .contentdata ul:not(.pagination) > li:hover{
@@ -230,12 +230,23 @@ footer{
 .contentdata .recipes ul figure{
     display: block;
     padding: 4px;
+
 }
 
 
 .contentdata .recipes ul figure img{
    width:100%;
    height: 100%;
+}
+.contentdata .settings ul li{
+    
+    padding: 10px;
+    font-size: 1.2em;
+
+}
+.contentdata .settings ul li .toggle{
+    float: right;
+    margin-left: 20px;
 }
 .contentdata section .info{
 	padding-left: 5px;
@@ -375,6 +386,24 @@ body.modal-open {
         -moz-transform: translateX(0px);
         transform: translateX(0px);
     }
+    .item-recipe{
+        height: 300px;
 
+    }
+    .contentdata .recipes ul figure{
+        height: 150px;
+    }
+    .col-sm-4 {
+        width: 32.33333333%;
+    }
+
+}
+@media (min-width: 992px){
+    .col-md-3 {
+            width: 24%;
+    }
+    .col-sm-3 {
+    /*width: 32.33333333% !important;*/
+        }
 }
 

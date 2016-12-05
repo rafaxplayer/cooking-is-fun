@@ -77,7 +77,7 @@ class UserController extends Controller {
     			$message->to('amsapzs@gmail.com', 'Admin')->subject($subject);
 
 			});
-			return redirect('/home')->with('message', 'Thanks for contacting us!');
+			return redirect('/home')->with('message', trans('messages.user.contactok'));
 		}
 		
 	}

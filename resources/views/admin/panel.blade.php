@@ -9,13 +9,14 @@
     <meta name="keywords" content="Recetas en linea ,Recetas en español">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title',trans('textsapp.modal.options.paneladmin'))</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/favicon.ico')}}"/>
     <link rel="stylesheet" href="{{asset('public/css/animate.css')}}"/>
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('public/css/font-awesome/css/font-awesome.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('public/css/bootstrap/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('public/css/admin/admin.css')}}"/>
+    <link rel="stylesheet" href="{{asset('public/css/admin/bootstrap-toggle.min.css')}}"/>
 </head>
 <body>
 <header>
@@ -68,8 +69,9 @@
   		<a data-section="#perfil" class="list-group-item active">
     			Panel Administrador
   			</a>
-  		<a href="{{url('admin/users')}}" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Users</a>
-  		<a href="{{url('admin/recipes')}}" class="list-group-item"><i class="fa fa-cutlery" aria-hidden="true"></i> Recipes</a>
+  		<a href="{{url('admin/users')}}" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Usuarios</a>
+  		<a href="{{url('admin/recipes')}}" class="list-group-item"><i class="fa fa-cutlery" aria-hidden="true"></i> Recetas</a>
+  		<a href="{{url('admin/settings')}}" class="list-group-item"><i class="fa fa-cutlery" aria-hidden="true"></i> Ajustes</a>
   		
 	</div>
 </div>
@@ -133,7 +135,7 @@
 	{!!Form::close()!!}
 	<ul>
 		@foreach($recipes as $recipe)
-		<li class="item-recipe col-md-3 col-xs-12">
+		<li class="item-recipe col-sm-4 col-md-3 col-xs-12">
 		
 		<a href="{{url('recipes/'.$recipe->id)}}">
 			<figure>
@@ -153,6 +155,17 @@
 	
 </section>
 @endif
+@if($view == 'settings')
+<section class="settings">
+	<ul>
+		<li>Modo Mantenimiento <input id="manten" name="manten" type="checkbox" onchange="$('#mantenform').submit()" data-size="small" data-toggle="toggle" {{App\Models\Settings::find(1)->value ? 'checked':''}}/>
+		</li>
+	
+		<li></li>
+		<li></li>
+	</ul>
+</section>
+@endif
 </div>			
 </div>
 <script type="text/javascript" src="{{asset('public/js/jquery.js')}}"></script>
@@ -161,6 +174,7 @@
 <script type="text/javascript" src="{{asset('public/js/scrollTo.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/js/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/js/admin/admin.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/js/admin/bootstrap-toggle.min.js')}}"></script>
 <footer>
 </footer>   
 </body>

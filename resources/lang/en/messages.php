@@ -21,4 +21,5 @@ return [
 	'recipes.delete'=>'Ok, recipe deleted successfully!',
 	'recipes.favorites'=>'Ok, recipe added to favorites',
 	'recipes.favoritesdelete'=>'Ok, recipe deleted from bookmarks',
+	'user.contactok'=>'Thanks for contacting us!',
 ];

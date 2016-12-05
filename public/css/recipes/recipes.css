@@ -89,6 +89,7 @@ max-width: 300px;
 .item_recipe:hover{
     background: #F2EAEA;
 }
+
 .col-sm-4{
     padding: 0 5px;
 }
@@ -131,6 +132,25 @@ max-width: 300px;
 .item_recipe .info p{
     margin:0 0 2px; 
     font-size: .7em;
+}
+.empty{
+    margin: 50px auto;
+    text-align: center;
+    opacity: .6;
+}
+.empty figure{
+    width: 300px;
+    margin: 0 auto;
+}
+.empty figure img{
+    width: 100%;
+    height: 100%;
+}
+.empty h4{
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#797171;
+    text-transform: uppercase;
 }
 /*end listrecipes*/
 /*details recipe*/
@@ -217,7 +237,7 @@ max-width: 300px;
 
 @media print {
 
-   header,footer,.tools,.socialshare,.fab{display:none;}
+   header,footer,.tools,.socialshare,.favorites,.fab{display:none;}
 }
 
 @media screen and (min-width: 480px){
@@ -230,6 +250,7 @@ max-width: 300px;
         
     }
 }
+
 @media screen and (min-width: 600px){
     #search>*{
         float: right;
@@ -240,12 +261,27 @@ max-width: 300px;
     
     }
     .item_recipe{
-        
+        height: 300px;
     }
     .item_recipe figure{
         
         margin: 6px 0 6px 6px;
         padding: 5px;
         vertical-align: top;
+        
+    }
+    .empty figure{
+        width: 400px;
+    
+    }
+    .empty h4{
+        font-size: 2em;
+    
+    }
+}
+@media screen and (min-width: 767px){
+    .item_recipe figure{
+      
+        height: 150px;
     }
 }

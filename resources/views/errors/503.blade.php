@@ -27,14 +27,19 @@
 
 			.title {
 				font-size: 72px;
-				margin-bottom: 40px;
+				font-weight: 700;
+				margin-bottom: 10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Be right back.</div>
+				<figure>	
+					<img src="{{asset('public/img/obras.png')}}" alt="">
+				</figure>
+				<div class="title">Estamos en obras.</div>
+				<div class="title">Sentimos las molestias.</div>
 			</div>
 		</div>
 	</body>

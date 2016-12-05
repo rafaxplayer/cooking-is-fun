@@ -5,7 +5,6 @@
 @section('javascript')
 <script type="text/javascript" src="{{asset('public/js/recipes/recipe.js')}}"></script>
 @stop
-
 @section('content')
 <div class="container-fluid">
 <div class="content_title">
