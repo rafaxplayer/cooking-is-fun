@@ -4,9 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7218b88e1a4b74e5cacbb907ea2bdf10",
-    "content-hash": "dd65db86516eea3eaa96fa68d6e12fb7",
+    "hash": "bd427cd455cc4798c2e66c4364e07325",
+    "content-hash": "fed9aeb54e6e84242d5d2c8646669cf2",
     "packages": [
+        {
+            "name": "barryvdh/laravel-dompdf",
+            "version": "v0.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-dompdf.git",
+                "reference": "b606788108833f7765801dca35455fb23ce9f869"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-dompdf/zipball/b606788108833f7765801dca35455fb23ce9f869",
+                "reference": "b606788108833f7765801dca35455fb23ce9f869",
+                "shasum": ""
+            },
+            "require": {
+                "dompdf/dompdf": "0.6.*",
+                "illuminate/support": "5.0.x|5.1.x|5.2.x",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\DomPDF\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "A DOMPDF Wrapper for Laravel",
+            "keywords": [
+                "dompdf",
+                "laravel",
+                "pdf"
+            ],
+            "time": "2015-12-21 19:51:22"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.4.0",
@@ -224,6 +272,47 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "dompdf/dompdf",
+            "version": "v0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "cc06008f75262510ee135b8cbb14e333a309f651"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/cc06008f75262510ee135b8cbb14e333a309f651",
+                "reference": "cc06008f75262510ee135b8cbb14e333a309f651",
+                "shasum": ""
+            },
+            "require": {
+                "phenx/php-font-lib": "0.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "include/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                },
+                {
+                    "name": "Brian Sweeney",
+                    "email": "eclecticgeek@gmail.com"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "time": "2015-12-07 04:07:13"
+        },
+        {
             "name": "illuminate/html",
             "version": "v5.0.0",
             "source": {
@@ -401,20 +490,20 @@
         },
         {
             "name": "jeremeamia/SuperClosure",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "29a88be2a4846d27c1613aed0c9071dfad7b5938"
+                "reference": "443c3df3207f176a1b41576ee2a66968a507b3db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/29a88be2a4846d27c1613aed0c9071dfad7b5938",
-                "reference": "29a88be2a4846d27c1613aed0c9071dfad7b5938",
+                "url": "https://api.github.com/repos/jeremeamia/super_closure/zipball/443c3df3207f176a1b41576ee2a66968a507b3db",
+                "reference": "443c3df3207f176a1b41576ee2a66968a507b3db",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "^1.2|^2.0",
+                "nikic/php-parser": "^1.2|^2.0|^3.0",
                 "php": ">=5.4",
                 "symfony/polyfill-php56": "^1.0"
             },
@@ -424,7 +513,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -455,7 +544,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2015-12-05 17:17:57"
+            "time": "2016-12-07 09:37:55"
         },
         {
             "name": "laravel/framework",
@@ -927,6 +1016,40 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "phenx/php-font-lib",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-font-lib.git",
+                "reference": "c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82",
+                "reference": "c30c7fc00a6b0d863e9bb4c5d5dd015298b2dc82",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "classes/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2014-02-01 15:22:28"
         },
         {
             "name": "psr/log",
@@ -2204,16 +2327,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "2.5.3",
+            "version": "2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "153ebd99d9b842e0c99a024c41f970d79db46475"
+                "reference": "db395f435eb8e820448e8690de1a8db86d5dd8af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/153ebd99d9b842e0c99a024c41f970d79db46475",
-                "reference": "153ebd99d9b842e0c99a024c41f970d79db46475",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/db395f435eb8e820448e8690de1a8db86d5dd8af",
+                "reference": "db395f435eb8e820448e8690de1a8db86d5dd8af",
                 "shasum": ""
             },
             "require": {
@@ -2278,7 +2401,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2016-09-26 20:28:11"
+            "time": "2016-12-04 21:03:31"
         },
         {
             "name": "phpspec/prophecy",
@@ -2588,16 +2711,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.29",
+            "version": "4.8.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f19d481b468b76a7fb55eb2b772ed487e484891e"
+                "reference": "a534e04d0bd39c557c2881c341efd06fa6f1292a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f19d481b468b76a7fb55eb2b772ed487e484891e",
-                "reference": "f19d481b468b76a7fb55eb2b772ed487e484891e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a534e04d0bd39c557c2881c341efd06fa6f1292a",
+                "reference": "a534e04d0bd39c557c2881c341efd06fa6f1292a",
                 "shasum": ""
             },
             "require": {
@@ -2656,7 +2779,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-11-20 10:35:28"
+            "time": "2016-12-01 17:05:48"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3088,25 +3211,31 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.7",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "9da375317228e54f4ea1b013b30fa47417e84943"
+                "reference": "f2300ba8fbb002c028710b92e1906e7457410693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/9da375317228e54f4ea1b013b30fa47417e84943",
-                "reference": "9da375317228e54f4ea1b013b30fa47417e84943",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f2300ba8fbb002c028710b92e1906e7457410693",
+                "reference": "f2300ba8fbb002c028710b92e1906e7457410693",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.9"
             },
+            "require-dev": {
+                "symfony/console": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -3133,7 +3262,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-11-18 21:05:29"
+            "time": "2016-11-18 21:17:59"
         },
         {
             "name": "webmozart/assert",

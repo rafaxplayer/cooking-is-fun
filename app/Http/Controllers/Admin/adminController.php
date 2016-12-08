@@ -17,11 +17,8 @@ class adminController extends Controller {
 	{
 		$this->middleware('admin');
 	}
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	
+	
 	public function getPanel($param = null)
 	{
 		switch($param){

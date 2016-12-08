@@ -12,11 +12,7 @@ class RecipesController extends Controller {
 	{
 		$this->middleware('auth',['except'=>['index','show']]);
 	}
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	
 	public function index(){
 		$recipes = Recipe::paginate(9);
 		$recipes->setPath('recipes');
@@ -24,21 +20,13 @@ class RecipesController extends Controller {
 		
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+	
 	public function create(){
 
 		return view('recipes.newrecipe');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+	
 	public function store(){
 
 		$recipe = new Recipe();
@@ -57,12 +45,7 @@ class RecipesController extends Controller {
 
 	}
 	
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function show($id){
 		
 		$recipe = Recipe::findOrFail($id);
@@ -72,12 +55,7 @@ class RecipesController extends Controller {
 		return view('recipes.detailrecipe',['recipe'=>$recipe,'favorite'=>$favorite]);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function edit($id){
 
 		$recipe = Recipe::findOrFail($id);
@@ -85,12 +63,7 @@ class RecipesController extends Controller {
 		return view('recipes.editrecipe',['recipe'=>$recipe,'cats'=>$cats]);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function update($id){
 
 		$recipe = Recipe::findOrFail($id);
@@ -108,12 +81,7 @@ class RecipesController extends Controller {
 		}
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function destroy($id)
 	{
 		$recipe = Recipe::findOrFail($id);
@@ -121,10 +89,7 @@ class RecipesController extends Controller {
 		return redirect("/recipes")->with('message',trans('messages.recipes.delete'));
 	}
 
-	/**
-	* Aditional functions for Recipes
-	*
-	*/
+	
 
 	//Favorites manager
 	public function addFavorites($recipeid){

@@ -2,7 +2,7 @@
 
 return [
 
-	"title" => "Cooking is Fun",
+	"title" => "Cooking is Fun!",
 	"recipes" => "Recipes",
 	"editrecipe"=> "Edit Recipe",
 	"favorites"=> "Favorites",

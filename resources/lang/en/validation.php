@@ -109,6 +109,9 @@ return [
 			'required'	=>	'The confirm password field is required.',
 			'same'		=>	'Passwords do not match',
 		],
+		'oldpassword' => [
+			'required'	=>	'The password field is required.'
+		],
 		'namerecipe' => [
 
 			'required' 	=> 'The name field is required.',
@@ -133,7 +136,25 @@ return [
 		'img_url' => [
 
 			'url'		=>	'Invalid format url',
-			'max'		=>	'Maxim size for url 255 characters'
+			'max'		=>	'Maxim size for url 255 characters',
+		],
+		'subject' => [
+
+			'min'	=>	'Subject is short',
+			'max'	=>	'Subject is long',
+		],
+		'message' => [
+			'required'	=>	'Enter required message',
+			'min'		=>	'Min 10 characters',
+		],
+		'avatarUpload'	=> [
+
+			'image' => 'Image file is required',
+			'max' => 'Max size for image 1000kb'
+		],
+		'avatarUrl' => [
+		
+			'url' => 'Incorrect format for url',
 		]
 
 	],

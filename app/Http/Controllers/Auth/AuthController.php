@@ -6,11 +6,8 @@ use Validator;
 use Input;
 use Mail;
 use Auth;
-//use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
 class AuthController extends Controller {
-
-
-    //use AuthenticatesAndRegistersUsers;
 	
 	public function __construct()
 	{

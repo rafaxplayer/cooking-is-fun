@@ -40,8 +40,7 @@
 }
 .form_custom figure,
 .details figure{
-    
-    max-height: 350px;
+    height: 350px;
     margin: 0 auto 20px;
 }
 .form_custom figure img,
@@ -105,6 +104,7 @@ max-width: 300px;
 .item_recipe figure img{
     width: 100%;
     height:100%;
+
 }
 .item_recipe .info{
     padding-left: 10px;
@@ -237,7 +237,23 @@ max-width: 300px;
 
 @media print {
 
-   header,footer,.tools,.socialshare,.favorites,.fab{display:none;}
+   header,footer,
+   .tools,.socialshare,
+   .favorites,
+   .fab,
+   .fab i{
+        display:none !important;
+    }
+    
+    .details > *{
+        width:inherit;
+        height:inherit;
+        float:none !important;
+        display: block !important;
+        
+    }
+    
+
 }
 
 @media screen and (min-width: 480px){

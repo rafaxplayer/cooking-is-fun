@@ -102,12 +102,15 @@ return [
 		],
 		'password' => [
 
-			'required'	=>	'La contraseña es necesaria'
+			'required'	=>	'La contraseña es necesaria.'
 		],
 		'password_confirmation'	=> [
 
 			'required'	=>	'Confirmación de contraseña es necesario',
 			'same'		=>	'Las contraseñas no coinciden',
+		],
+		'oldpassword' => [
+			'required'	=>	'La contraseña actual es necesaria.'
 		],
 		'namerecipe' => [
 
@@ -134,6 +137,25 @@ return [
 
 			'url'		=>	'Formato enlace invalido',
 			'max'		=>	'Tamaño maximo de url 255 caracteres'
+		],
+		
+		'subject' => [
+			'required'	=>	'Escribe un asunto',
+			'min'	=>	'El asunto es muy corto',
+			'max'	=>	'El asunto es muy largo',
+		],
+		'message' => [
+			'required'	=>	'Escribe un mensage',
+			'min'		=>	'Min 10 caracteres',
+		],
+		'avatarUpload'	=> [
+
+			'image' => 'El formato de la imagen no es valido.',
+			'max' => 'El tamaño de la imagen es muy grabde (Max 1000kb).'
+		],
+		'avatarUrl' => [
+		
+			'url' => 'El formato de la url no es valido',
 		]
 
 	],

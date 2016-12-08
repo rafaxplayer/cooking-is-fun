@@ -45,20 +45,9 @@ class UserController extends Controller {
 	      'subject' => 'required|max:40|min:5',
 	      'message' => 'required|min:5',
 	    ];
-
-	    $messages = [
-
-	     'email.required' => 'Enter required email',
-	     'email.email' => 'Invalid email format',
-         'subject.required' => 'Email required subject',
-         'subject.min' => 'Subject  is short',
-         'subject.max' => 'Subject  is long',
-         'message.required' => 'Enter required message',
-         'message.min' => 'Message is short',
-
-     	];
+    
 		
-     	$validator = Validator::make($postData, $rules, $messages);
+     	$validator = Validator::make($postData, $rules);
 		
 		if($validator->fails()){
 
@@ -91,14 +80,8 @@ class UserController extends Controller {
 	      'password_confirmation' => 'required|same:password'
 	    ];
 
-	    $messages = [
-	     'oldpassword.required'=>'Enter required password',
-	     'password.required' => 'Enter required password',
-         'password_confirmation.required' => 'Email confirm is required',
-         'password_confirmation.same' => 'Email confirm is not equal'
-     	];
-
-     	$validator = Validator::make($postData, $rules, $messages);
+	    
+     	$validator = Validator::make($postData, $rules);
 
 		if ($validator->fails()) {
 		      
@@ -110,7 +93,7 @@ class UserController extends Controller {
 
 				$user= Auth::user();
 
-				$user->password = bcryp(Input::get('password'));
+				$user->password = bcrypt(Input::get('password'));
 
 				if($user->save()){
 
@@ -137,13 +120,8 @@ class UserController extends Controller {
 	     'avatarUrl' => 'url'
 	    ];
 
-	    $messages = [
-         'avatarUpload.image' => 'Image file is required',
-         'avatarUpload.max' => 'Max size for image 1000kb',
-         'avatarUrl.url' => 'Incorrect format for url'
-     	];
-
-     	$validator = Validator::make($postData, $rules, $messages);
+	    
+     	$validator = Validator::make($postData, $rules);
 
 		if ($validator->fails()) {
 		      
@@ -193,13 +171,7 @@ class UserController extends Controller {
 	     'email' =>'required|email|unique:users'
 	    ];
 
-	    $messages = [
-         'email.required' => 'Email is required.',
-         'email.email' => 'Invalid format email.',
-         'email.unique' => 'This email already exists.'
-     	];
-
-     	$validator = Validator::make($postData, $rules, $messages);
+     	$validator = Validator::make($postData, $rules);
 
 		if ($validator->fails()) {
 		      

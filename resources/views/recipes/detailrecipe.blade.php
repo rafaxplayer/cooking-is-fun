@@ -29,6 +29,12 @@
 					<a href="{{$favorite?url('recipes/favorite/remove/'.$recipe->id):url('recipes/favorite/'.$recipe->id)}}" class="btn-favorites"><i class="fa fa-star"></i>{{$favorite ?' Eliminar de favoritos':' Añadir a favoritos'}}</a>	
 				</div>
 				@endif
+			@else
+				<div class="tools">
+					<a href="{{url('recipes/pdf/'.$recipe->id)}}"><i class="fa fa-file-pdf-o"></i></a>
+					<a href="#" onclick="window.print();"><i class="fa fa-print"></i></a>					
+				</div>
+
 			@endif
 		</div>
 		<div class="col-md-8 ">
