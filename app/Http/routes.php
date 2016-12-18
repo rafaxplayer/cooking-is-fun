@@ -15,7 +15,14 @@ Route::group(['middleware' => 'mantenimiento'], function(){
 		Route::get('/pdf/{id}','PDFController@RecipeToPdf');
 	
 	});
-	
+
+	Route::group(['prefix' => 'api'], function(){
+		Route::get('/recipes','Api\ApiController@getRecipes');
+		Route::get('/user/{id}','Api\ApiController@userData');
+		Route::get('/authenticate','Api\ApiController@authenticate');
+		
+	});
+
 	Route::resource('/recipes','Recipes\RecipesController');
 
 	Route::group(['prefix' => 'user'], function(){
@@ -65,6 +72,7 @@ Route::group(['middleware' => 'mantenimiento'], function(){
 
 
 
+
 Route::group(['prefix' => 'auth'], function(){
 
 	Route::get('login','Auth\AuthController@loginGetView');
@@ -78,6 +86,12 @@ Route::group(['prefix' => 'auth'], function(){
 	Route::get('register/verify/{code}','Auth\AuthController@registerVerify');
 
 	Route::get('logout','Auth\AuthController@logout');
+
+	//email reset
+	Route::get('password/email','Auth\PasswordController@getEmail');
+	Route::post('password/email','Auth\PasswordController@postEmail');
+	Route::get('password/reset/{token}','Auth\PasswordController@getReset');
+	Route::post('password/reset','Auth\PasswordController@postReset');
 });
 
 

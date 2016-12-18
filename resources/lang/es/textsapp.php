@@ -6,7 +6,7 @@ return [
 	"recipes" => "Recetas",
 	"editrecipe" => "Editar Receta",
 	"favorites" => "Favoritos",
-	"login" => "Logearse",
+	"login" => "Ingresar",
 	"register" => "Registrarse",
 	"headerinfo" => "Comparte tus creaciones culinarias o accede a las de otros muchos usuarios...",
 	"welcome" => "Bienvevid@ a cocinar es divertido!!!",
@@ -40,6 +40,10 @@ return [
 	"modal.options.panel" => "Panel de control",
 	"modal.options.paneladmin" => "Panel de Administración",
 	"modal.options.button" => "Cerrar",
-	"sharewith" => "Compartir con :red"
+	"sharewith" => "Compartir con :red",
+	"email.reset.title"	=> "Su enlace para cambio de contraseña",
+	"email.reset.comment" => " Siga este enlace para resetear su contraseña:",
+	"email.verify.title"	=> "Verifique su cuenta :name",
+	"email.verify.comment" => "Gracias por registrarse en Cooking is Fun. Siga este enlace para verificar su cuenta y despues identifiquese con sus credenciales , un saludo! "
 
 ];

@@ -34,11 +34,13 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
+								<div class="checkbox" style="display:inline-block;
+    margin:0 10px 10px 0;">
 									<label>
 										<input type="checkbox" name="remember"> {{trans('textsapp.remember')}}
 									</label>
 								</div>
+								<a href="{{url('auth/password/email')}}" style="white-space:nowrap; padding: 10px">Olvide mi contraseña</a>
 							</div>
 						</div>
 

@@ -14,7 +14,6 @@
 	</div>
 	<div id="search">
 		<div class="input-group">	
-			
 			{!!Form::select('category', App\Models\Category::lists('name','id'),null,['class'=>'form-control','id'=>'category','onchange'=>'onChangeCat(this.value)'])!!}
 		</div>
 		

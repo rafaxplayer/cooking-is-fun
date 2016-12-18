@@ -7,6 +7,7 @@ use Input;
 use Mail;
 use Auth;
 
+
 class AuthController extends Controller {
 	
 	public function __construct()
@@ -75,7 +76,7 @@ class AuthController extends Controller {
 			$user->active=1;
 			$user->save();
 
-			return redirect('/home')->with('message',trans('messages.register.confirm.ok'));
+			return redirect('/home')->with('message',trans('messages.register.confirm.ok',['name'=>$user->name]));
 		}
 		return redirect('/home')->with('message_warning',trans('messages.register.confirm.fail'));
 		
@@ -133,6 +134,8 @@ class AuthController extends Controller {
 
 		return redirect('/home')->with('message','Logout');
 	}
+
+	
 
 
 }

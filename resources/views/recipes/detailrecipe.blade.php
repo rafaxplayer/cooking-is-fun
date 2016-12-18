@@ -21,6 +21,7 @@
 				<div class="tools">
 					<a href="{{url('recipes/'.$recipe->id.'/edit')}}"><i class="fa fa-pencil"></i></a>
 					<a href="" data-toggle="modal" data-target="#modalconfirm" data-name="{{$recipe->name}}" data-id="{{$recipe->id}}"><i class="fa fa-trash"></i></a>
+					<a href="{{url('recipes/pdf/'.$recipe->id)}}"><i class="fa fa-file-pdf-o"></i></a>
 					<a href="#" onclick="window.print();"><i class="fa fa-print"></i></a>					
 				</div>
 				@endif

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container-fluid">
@@ -24,9 +24,8 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('auth/password/email') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 						<div class="form-group">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">

@@ -40,6 +40,10 @@ return [
 	"modal.options.panel" => "Control Panel",
 	"modal.options.paneladmin" => "Administrator Panel",
 	"modal.options.button" => "Close",
-	"sharewith" => "Share with :red"
+	"sharewith" => "Share with :red",
+	"email.reset.title"	=> "Your password reste link",
+	"email.reset.comment" => "Follow this link to reset your password:",
+	"email.verify.title"	=> "Verify Your account :name",
+	"email.verify.comment" => "Thanks for signing up for Cooking-is-Fun, access the following link to verify your account and then log in with your credentials. a greeting."
 
 ];
