@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\User;
+use App\Models\Category;
 use Auth;
 use Input;
 class apiController extends Controller {
@@ -20,7 +21,22 @@ class apiController extends Controller {
 		if(!$recipes){
 			return response()->json(['errors'=>array(['code'=>404,'message'=>'An error oaurred or list recipes is empty'])],404);
 		}
+		foreach ($recipes as $recipe) {
+			$recipe->setAttribute('user', $recipe->user()->get(['name','email','avatar','id']));
+		}
 		return response()->json(['status'=>'ok','data'=>$recipes],200);
+		
+	}
+
+	public function getCategories()
+	{
+		$categories= Category::all();
+
+		if(!$categories){
+			return response()->json(['errors'=>array(['code'=>404,'message'=>'An error oaurred or list categories is empty'])],404);
+		}
+		
+		return response()->json(['status'=>'ok','data'=>$categories],200);
 		
 	}
 	
@@ -29,7 +45,7 @@ class apiController extends Controller {
 		$user = User::findOrFail($id);
 
 		if(!$user){
-			return response()->json(['errors'=>array(['code'=>404,'message'=>'An error oaurred user is empty'])],404);
+			return response()->json(['status'=>'error','data'=>'Error , user not find'],404);
 		}
 		return response()->json(['status'=>'ok','data'=>$user],200);
 	}

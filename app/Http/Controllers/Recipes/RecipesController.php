@@ -14,7 +14,7 @@ class RecipesController extends Controller {
 	}
 	
 	public function index(){
-		$recipes = Recipe::paginate(9);
+		$recipes = Recipe::paginate(15);
 		$recipes->setPath('recipes');
 		return view('recipes.listrecipes',compact('recipes'));
 		
@@ -125,7 +125,7 @@ class RecipesController extends Controller {
 
 	public function search(){
 
-		$recipes = Recipe::paginate(9);
+		$recipes = Recipe::paginate(15);
 		$recipes->setPath('recipes');
 		
 		if(Input::has('pattern')){

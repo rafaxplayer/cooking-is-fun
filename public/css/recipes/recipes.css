@@ -71,6 +71,7 @@ max-width: 300px;
 
 #list_recipes{
     margin: 10px auto 20px;
+    overflow: hidden;
 }
 
 .item_recipe{
@@ -281,9 +282,7 @@ max-width: 300px;
         display: inline-block;
     
     }
-    .item_recipe{
-        height: 300px;
-    }
+    
     .item_recipe figure{
         
         margin: 6px 0 6px 6px;
@@ -304,5 +303,8 @@ max-width: 300px;
     .item_recipe figure{
       
         height: 150px;
+    }
+    .item_recipe{
+       height: 300px;
     }
 }

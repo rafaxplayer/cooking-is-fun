@@ -18,6 +18,7 @@ Route::group(['middleware' => 'mantenimiento'], function(){
 
 	Route::group(['prefix' => 'api'], function(){
 		Route::get('/recipes','Api\ApiController@getRecipes');
+		Route::get('/categories','Api\ApiController@getCategories');
 		Route::get('/user/{id}','Api\ApiController@userData');
 		Route::get('/authenticate','Api\ApiController@authenticate');
 		

@@ -23,7 +23,7 @@
 	    </div>
 	</div>
 	<div id="list_recipes">
-		<div class="row-fluid">
+		<div class="row">
 		@if($recipes->count() > 0)
 			@foreach($recipes as $recipe)
 				<div class="col-md-3 col-sm-4 col-xs-12">
