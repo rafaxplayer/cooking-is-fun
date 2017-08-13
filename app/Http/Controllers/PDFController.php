@@ -11,7 +11,7 @@ class PDFController extends Controller {
     {
     	$recipe = Recipe::findOrFail($id);
        
-        $view =  \View::make('pdf.recipe', compact('recipe'))->render();
+        $view = \View::make('pdf.recipe', compact('recipe'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         return $pdf->stream($recipe->name);

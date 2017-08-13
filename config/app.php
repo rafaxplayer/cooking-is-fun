@@ -148,6 +148,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
 		
+		
 
 
 	],
@@ -199,7 +200,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' 		=> 'Collective\Html\FormFacade',
       	'Html' 		=> 'Collective\Html\HtmlFacade',
-		'PDF' => 'Barryvdh\DomPDF\Facade',
+		'PDF' 		=> 'Barryvdh\DomPDF\Facade',
+		
 		
 
 	],

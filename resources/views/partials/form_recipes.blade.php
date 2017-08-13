@@ -25,9 +25,9 @@
 	<div class="form-group">
 		<label for="namerecipe">{{trans('textsapp.recipename')}}</label>
 		<input type="text" class="form-control" placeholder="Nombre de la receta" name="namerecipe" value="{{$recipe->name or old('name')}}" />
-		@if($errors->has('name'))
+		@if($errors->has('namerecipe'))
 		<div>
-			<label class="redtext">{{$errors->first('name')}}</label>	
+			<label class="redtext">{{$errors->first('namerecipe')}}</label>	
 		</div>
 		@endif
 	</div>

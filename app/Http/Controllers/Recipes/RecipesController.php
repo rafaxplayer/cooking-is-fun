@@ -94,7 +94,7 @@ class RecipesController extends Controller {
 	//Favorites manager
 	public function addFavorites($recipeid){
 
-		$user=Auth::user();
+		$user = Auth::user();
 		$user->favorites()->attach($recipeid);
 		return redirect('recipes/'.$recipeid)->with('message',trans('messages.recipes.favorites'));
 	}

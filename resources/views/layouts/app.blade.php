@@ -71,7 +71,6 @@
 @include('partials/modal_user')
 @include('partials/messages')
 @yield('content')
-
 <script type="text/javascript" src="{{asset('public/js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/js/modernizer.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/js/bootstrap.min.js')}}"></script>
@@ -80,15 +79,14 @@
 @yield('javascript')
 <div class="fab" onclick="$.scrollTo('header',500)">
     <i class="fa fa-reply-all"></i>
-    
 </div>
 <footer>
     <aside> 
-    <div class="footer-recipes">
-        @foreach(App\Models\Recipe::all()->slice(0,8) as $recipe)
-        <a href="{{url('recipes/'.$recipe->id)}}" class="recipe-link">{{$recipe->name}}</a>
-        @endforeach
-    </div>
+        <section class="footer-recipes">
+            @foreach(App\Models\Recipe::all()->slice(0,8) as $recipe)
+            <a href="{{url('recipes/'.$recipe->id)}}" class="recipe-link">{{$recipe->name}}</a>
+            @endforeach
+        </section>
     </aside>
     <div class="langs">
         <a href="{{url('setlang/es')}}">
@@ -101,7 +99,6 @@
     </div>
     <div class="sing"> 
         <p>powered by raf@xplayer© - <a href="{{url('user/contact')}}">contacto</a></p>
-
     </div>
     
 </footer>   

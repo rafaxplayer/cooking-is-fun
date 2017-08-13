@@ -22,13 +22,13 @@
 	       	<div class="input-group-addon"><i class="fa fa-search"></i></div>
 	    </div>
 	</div>
-	<div id="list_recipes">
+	<section id="list_recipes">
 		<div class="row">
 		@if($recipes->count() > 0)
 			@foreach($recipes as $recipe)
 				<div class="col-md-3 col-sm-4 col-xs-12">
 				<a href="{{url('/recipes/'.$recipe->id)}}">
-					<div class="item_recipe">
+					<article class="item_recipe">
 						@if(Auth::check() && Auth::user()->favorites->contains($recipe))
 							<div class="star-favorite"><i class="fa fa-star"></i></div>
 						@endif
@@ -44,7 +44,7 @@
 							<p><i class="fa fa-tag" aria-hidden="true"></i> {{$recipe->categoriesToString()}}</p>
 							@endif
 						</div>
-					</div>
+					</article>
 					</a>
 				</div>
 			@endforeach
@@ -58,7 +58,7 @@
 		@endif
 		</div>
 	{!!$recipes->render()!!}
-	</div>
+	</section>
 </div>
 
 @stop
